@@ -8,13 +8,26 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9c7c32a-755d-4fac-be99-be9aeef3abdd" name="Default Changelist" comment="" />
+    <list default="true" id="f9c7c32a-755d-4fac-be99-be9aeef3abdd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/sdp/remotehealthcareapp/JoyInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/circle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/joy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/joy_bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_joy_interface.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="RZ8M81D8Z3R" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_4_XL_API_30" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -27,15 +40,37 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1fLeb7Sf7tfXIuIwLKkQPvkEc58" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ResourceManagerPrefKey.ResourceType" value="LAYOUT" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="android.template.200189200">
+      <recent name="com.sdp.remotehealthcareapp" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -110,7 +145,18 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="572" y="311" width="824" height="491" key="AndroidCreateResourceFileDialog" timestamp="1598171345239">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="572" y="311" width="824" height="491" key="AndroidCreateResourceFileDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1598171345239" />
+    <state x="648" y="311" key="Downloadable.Font.Dialog.Size" timestamp="1598171293038">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="648" y="311" key="Downloadable.Font.Dialog.Size/59.27.1861.1053@59.27.1861.1053" timestamp="1598171293038" />
     <state width="1816" height="276" key="GridCell.Tab.0.bottom" timestamp="1596015897128">
       <screen x="59" y="27" width="1861" height="1053" />
     </state>
@@ -127,6 +173,10 @@
       <screen x="59" y="27" width="1861" height="1053" />
     </state>
     <state width="1816" height="276" key="GridCell.Tab.0.right/59.27.1861.1053@59.27.1861.1053" timestamp="1596015897127" />
+    <state x="159" y="127" width="1661" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1598170296501">
+      <screen x="59" y="27" width="1861" height="1053" />
+    </state>
+    <state x="159" y="127" width="1661" height="853" key="com.intellij.history.integration.ui.views.FileHistoryDialog/59.27.1861.1053@59.27.1861.1053" timestamp="1598170296501" />
     <state x="653" y="252" key="run.anything.popup" timestamp="1596023509272">
       <screen x="59" y="27" width="1861" height="1053" />
     </state>

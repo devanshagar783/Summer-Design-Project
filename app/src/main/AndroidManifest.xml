@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/healtcare_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".JoyInterface"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
