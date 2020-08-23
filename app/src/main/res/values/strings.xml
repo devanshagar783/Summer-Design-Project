@@ -1,17 +1,22 @@
 <resources>
-    <string name="app_name">Remote Healthcare App</string>
-    <string name="action_settings">Settings</string>
-    <string name="str_self_assessment">SELF ASSSESSMENT</string>
-    <string name="str_book_appointment">BOOK APPOINTMENT</string>
-    <string name="str_buy_medicine">BUY MEDICINES</string>
-    <string name="str_tagline">Distanced but never diseased</string>
-
+    <string name = "app_name">Remote Healthcare App</string>
+    <string name = "action_settings">Settings</string>
+    <string name = "str_self_assessment">SELF ASSSESSMENT</string>
+    <string name = "str_book_appointment">BOOK APPOINTMENT</string>
+    <string name = "str_buy_medicine">BUY MEDICINES</string>
+    <string name = "str_tagline">Distanced but never diseased</string>
+    
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name = "first_fragment_label">First Fragment</string>
+    <string name = "second_fragment_label">Second Fragment</string>
+    <string name = "next">Next</string>
+    <string name = "previous">Previous</string>
+    
+    <string name = "hello_first_fragment">Hello first fragment</string>
+    <string name = "hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name = "str_user_name">Tony Stark</string>
+    <string name = "str_upcoming_appointments">Upcoming Appointments</string>
+    <string name = "str_previous_prescriptions">Previous Prescriptions</string>
+    <string name = "str_previous_medical_appointments">Previous Medical Appointments</string>
+    <string name = "str_diagnosis_history">Diagnosis History</string>
 </resources>
