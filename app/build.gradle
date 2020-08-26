@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.sdp.remotehealthcareapp"
-        minSdkVersion 26
+        minSdkVersion 24
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
