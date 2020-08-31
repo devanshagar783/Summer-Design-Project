@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "926125168573",
+    "firebase_url": "https://temporary-60b60.firebaseio.com",
+    "project_id": "temporary-60b60",
+    "storage_bucket": "temporary-60b60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:926125168573:android:c12c7ce8cb9564104fa4d4",
+        "android_client_info": {
+          "package_name": "com.example.temporary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "926125168573-ndn8lvsu4sbt1ogaanjnomciabj9qio2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkedRsSiLKV0fh4TYl9MRNSw1bVvQW4Sg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "926125168573-ndn8lvsu4sbt1ogaanjnomciabj9qio2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
