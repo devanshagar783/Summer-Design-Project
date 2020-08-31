@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "926125168573",
-    "firebase_url": "https://temporary-60b60.firebaseio.com",
-    "project_id": "temporary-60b60",
-    "storage_bucket": "temporary-60b60.appspot.com"
+    "project_number": "945255550091",
+    "firebase_url": "https://remote-healthcare-c6a5c.firebaseio.com",
+    "project_id": "remote-healthcare-c6a5c",
+    "storage_bucket": "remote-healthcare-c6a5c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:926125168573:android:c12c7ce8cb9564104fa4d4",
+        "mobilesdk_app_id": "1:945255550091:android:8611451533156d5e0c588e",
         "android_client_info": {
-          "package_name": "com.example.temporary"
+          "package_name": "com.sdp.remotehealthcareapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "926125168573-ndn8lvsu4sbt1ogaanjnomciabj9qio2.apps.googleusercontent.com",
+          "client_id": "945255550091-e4fkg2i3n9r74m6i5kl6qlumtmnbepfg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sdp.remotehealthcareapp",
+            "certificate_hash": "aa0ba12aceb1f6ea588fc09cb67b1c364698d5d4"
+          }
+        },
+        {
+          "client_id": "945255550091-imbk4takfq0ep65uvpbakb7iibq7gk23.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAkedRsSiLKV0fh4TYl9MRNSw1bVvQW4Sg"
+          "current_key": "AIzaSyChDUxP7joZ3m2NSx3yST6GaQQgXn8Q37I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "926125168573-ndn8lvsu4sbt1ogaanjnomciabj9qio2.apps.googleusercontent.com",
+              "client_id": "945255550091-imbk4takfq0ep65uvpbakb7iibq7gk23.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
