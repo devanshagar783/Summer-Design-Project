@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/google_pic"
+        android:layout_width="245dp"
+        android:layout_height="211dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/google" />
+
+    <TextView
+        android:id="@+id/text_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/baloo"
+        android:text="Sign In"
+        android:textColor="#0B0A0A"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_below="@id/google_pic" />
+
+    <Button
+        android:id="@+id/google_signin"
+        android:layout_width="287dp"
+        android:layout_height="46dp"
+        android:layout_below="@id/text_signin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_rounded"
+        android:drawableLeft="@drawable/googleg_standard_color_18"
+        android:drawablePadding="20dip"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:text="Sign In With Google "
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/fb"
+        android:layout_width="47dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="30dp"
+        android:layout_alignBaseline="@id/image_phone"
+        app:srcCompat="@drawable/fb"
+        android:layout_below="@id/text_more"/>
+
+    <ImageView
+        android:id="@+id/image_phone"
+        android:layout_width="47dp"
+        android:layout_height="42dp"
+        android:layout_below="@id/text_more"
+        android:layout_marginStart="200dp"
+        android:layout_marginEnd="120dp"
+        app:srcCompat="@drawable/phone" />
+
+    <TextView
+        android:id="@+id/text_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/baloo"
+        android:text="More Sign In Options"
+        android:textColor="#474343"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/google_signin" />
+</RelativeLayout>

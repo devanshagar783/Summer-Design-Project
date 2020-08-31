@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/amarante</item>
+        <item>@font/arbutus_slab</item>
+        <item>@font/baloo</item>
+        <item>@font/boogaloo</item>
+        <item>@font/caveat_brush</item>
+        <item>@font/holtwood_one_sc</item>
+    </array>
+</resources>

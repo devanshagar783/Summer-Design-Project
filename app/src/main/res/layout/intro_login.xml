@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout   xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/tagphoto"
+        android:layout_width="match_parent"
+        android:layout_height="427dp"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/five" />
+
+    <Button
+        android:id="@+id/tagbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tagphoto"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#F8121312"
+        android:fontFamily="@font/baloo"
+        android:text="Login into your account"
+        android:textAllCaps="true"
+        android:textColor="#F3EBEB"
+        android:textSize="14sp" />
+
+
+</RelativeLayout>
