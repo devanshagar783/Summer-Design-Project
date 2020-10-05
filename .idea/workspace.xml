@@ -29,13 +29,33 @@
     <select />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="f9c7c32a-755d-4fac-be99-be9aeef3abdd" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="f9c7c32a-755d-4fac-be99-be9aeef3abdd" name="Default Changelist" comment="Added user UI">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/google-services.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/google-services.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+    </list>
+>>>>>>> 73215b4b564542cf67ab6cfec78d8e0f34133098
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_4_XL_API_30" />
+=======
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ZY223KZ8GW" />
+>>>>>>> 73215b4b564542cf67ab6cfec78d8e0f34133098
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -285,6 +305,7 @@
       <screen x="0" y="27" width="1856" height="1053" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1598191083402" />
+<<<<<<< HEAD
     <state x="629" y="198" width="424" height="491" key="FileChooserDialogImpl/0.27.1856.1053@0.27.1856.1053" timestamp="1601910855054" />
     <state width="1811" height="276" key="GridCell.Tab.0.bottom" timestamp="1601911574672">
       <screen x="0" y="27" width="1856" height="1053" />
@@ -309,6 +330,27 @@
     </state>
     <state width="1322" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598853592805" />
     <state width="1811" height="276" key="GridCell.Tab.0.right/0.27.1856.1053@0.27.1856.1053" timestamp="1601911574671" />
+=======
+    <state width="1322" height="178" key="GridCell.Tab.0.bottom" timestamp="1598853592805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598853592805" />
+    <state width="1816" height="276" key="GridCell.Tab.0.bottom/59.27.1861.1053@59.27.1861.1053" timestamp="1596015897128" />
+    <state width="1322" height="178" key="GridCell.Tab.0.center" timestamp="1598853592805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1598853592805" />
+    <state width="1816" height="276" key="GridCell.Tab.0.center/59.27.1861.1053@59.27.1861.1053" timestamp="1596015897127" />
+    <state width="1322" height="178" key="GridCell.Tab.0.left" timestamp="1598853592805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1598853592805" />
+    <state width="1816" height="276" key="GridCell.Tab.0.left/59.27.1861.1053@59.27.1861.1053" timestamp="1596015897127" />
+    <state width="1322" height="178" key="GridCell.Tab.0.right" timestamp="1598853592805">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1322" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598853592805" />
+>>>>>>> 73215b4b564542cf67ab6cfec78d8e0f34133098
     <state width="1816" height="276" key="GridCell.Tab.0.right/59.27.1861.1053@59.27.1861.1053" timestamp="1596015897127" />
     <state x="184" y="6" key="SettingsEditor" timestamp="1598848076877">
       <screen x="0" y="0" width="1366" height="728" />
