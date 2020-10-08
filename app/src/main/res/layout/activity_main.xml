@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawerlayout"
     tools:openDrawer="start"
-    tools:context=".Signin">
+    tools:context=".Activities.Signin">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator"
