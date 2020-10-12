@@ -69,6 +69,13 @@ public class Signin extends AppCompatActivity {
                 signIn();
             }
         });
+        findViewById(R.id.fb).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), signup.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
