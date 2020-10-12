@@ -48,18 +48,20 @@
         android:layout_height="42dp"
         android:layout_marginStart="120dp"
         android:layout_marginEnd="30dp"
-        android:layout_alignBaseline="@id/image_phone"
+        android:layout_alignBaseline="@id/phone_login_btn"
         app:srcCompat="@drawable/fb"
         android:layout_below="@id/text_more"/>
 
-    <ImageView
-        android:id="@+id/image_phone"
+    <ImageButton
+        android:id="@+id/phone_login_btn"
         android:layout_width="47dp"
         android:layout_height="42dp"
         android:layout_below="@id/text_more"
         android:layout_marginStart="200dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="120dp"
-        app:srcCompat="@drawable/phone" />
+        android:background="@drawable/phone"
+        android:contentDescription="signin using phone number" />
 
     <TextView
         android:id="@+id/text_more"

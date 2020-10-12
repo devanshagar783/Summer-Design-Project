@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity"
-    android:background="@drawable/main_bg"
+    android:background="@drawable/whitishblur_main_bg"
     android:scrollbars="none">
 
 
@@ -32,73 +32,111 @@
         android:id="@+id/fab_contactus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_buy_medicine"
-        android:layout_alignRight="@id/btn_buy_medicine"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginRight="-8dp"
-        android:layout_marginBottom="22dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#99005500"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/fab_contactus_marginRight"
+        android:layout_marginBottom="@dimen/fab_contactus_marginBottom"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_help"
         android:layout_width="110dp"
         android:layout_height="96dp"
-        android:layout_below="@+id/btn_buy_medicine"
-        android:layout_alignRight="@id/btn_buy_medicine"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#99005500"
         android:layout_gravity="bottom|end"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="91dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
-        android:layout_marginBottom="43dp"
+        android:layout_marginEnd="@dimen/fab_help_marginRight"
+        android:layout_marginBottom="@dimen/fab_help_marginBottom"
         app:srcCompat="@drawable/fab_help" />
 
-    <androidx.appcompat.widget.AppCompatButton
+
+    <ImageButton
         android:id="@+id/btn_self_assessment"
-        android:layout_width="@dimen/btn_length"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="#99000000"
-        android:clickable="true"
-        android:longClickable="true"
-        android:text="@string/str_self_assessment"
-        android:textColor="#FFFFFF"
-        android:textSize="@dimen/main_textSize"
-        android:textStyle="bold" />
+        android:layout_width="@dimen/imagebtn_width"
+        android:layout_height="@dimen/imagebtn_height"
+        android:background="@drawable/joy"
+        android:layout_below="@id/main_heart"
+        android:layout_marginTop="225dp"
+        android:layout_marginStart="20dp" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <ImageButton
         android:id="@+id/btn_book_appointment"
-        android:layout_width="@dimen/btn_length"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btn_self_assessment"
-        android:layout_marginTop="@dimen/btn_gap"
-        android:background="#99000000"
-        android:clickable="true"
-        android:longClickable="true"
-        android:text="@string/str_book_appointment"
-        android:textColor="#FFFFFF"
-        android:textSize="@dimen/main_textSize"
-        android:textStyle="bold"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_buy_medicine"
-        android:layout_width="@dimen/btn_length"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btn_book_appointment"
-        android:layout_marginTop="@dimen/btn_gap"
-        android:background="#99000000"
-        android:clickable="true"
-        android:longClickable="true"
-        android:text="@string/str_buy_medicine"
-        android:textColor="#FFFFFF"
-        android:textSize="@dimen/main_textSize"
-        android:textStyle="bold"
+        android:layout_width="@dimen/imagebtn_width"
+        android:layout_height="@dimen/imagebtn_height"
+        android:background="@drawable/book_appointment_cover"
+        android:layout_toRightOf="@+id/btn_self_assessment"
+        android:layout_below="@+id/main_heart"
+        android:layout_marginTop="225dp"
+        android:layout_marginStart="30dp"
         />
+
+    <ImageButton
+        android:id="@+id/btn_buy_medicine"
+        android:layout_width="@dimen/imagebtn_width"
+        android:layout_height="@dimen/imagebtn_height"
+        android:background="@drawable/buy_medicines_cover"
+        android:layout_below="@id/btn_self_assessment"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp" />
+
+    <ImageButton
+        android:id="@+id/btn_near_me"
+        android:layout_width="@dimen/imagebtn_width"
+        android:layout_height="@dimen/imagebtn_height"
+        android:background="@drawable/near_me_cover"
+        android:layout_toRightOf="@+id/btn_self_assessment"
+        android:layout_below="@+id/btn_self_assessment"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp" />
+
+
+    <!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/btn_self_assessment"-->
+<!--        android:layout_width="@dimen/btn_length"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="120dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_centerVertical="true"-->
+<!--        android:background="#99000000"-->
+<!--        android:clickable="true"-->
+<!--        android:longClickable="true"-->
+<!--        android:text="@string/str_self_assessment"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="@dimen/main_textSize"-->
+<!--        android:textStyle="bold" />-->
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/btn_book_appointment"-->
+<!--        android:layout_width="@dimen/btn_length"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_below="@+id/btn_self_assessment"-->
+<!--        android:layout_marginTop="@dimen/btn_gap"-->
+<!--        android:background="#99000000"-->
+<!--        android:clickable="true"-->
+<!--        android:longClickable="true"-->
+<!--        android:text="@string/str_book_appointment"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="@dimen/main_textSize"-->
+<!--        android:textStyle="bold"/>-->
+
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/btn_buy_medicine"-->
+<!--        android:layout_width="@dimen/btn_length"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_below="@+id/btn_book_appointment"-->
+<!--        android:layout_marginTop="@dimen/btn_gap"-->
+<!--        android:background="#99000000"-->
+<!--        android:clickable="true"-->
+<!--        android:longClickable="true"-->
+<!--        android:text="@string/str_buy_medicine"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="@dimen/main_textSize"-->
+<!--        android:textStyle="bold"-->
+<!--        />-->
 
 </RelativeLayout>

@@ -8,12 +8,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:945255550091:android:8611451533156d5e0c588e",
+        "mobilesdk_app_id": "1:945255550091:android:03dbe3389368f1780c588e",
         "android_client_info": {
           "package_name": "com.sdp.remotehealthcareapp"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "945255550091-5e2t5okr3if9sst9ic3jqmr5gcbj68mm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sdp.remotehealthcareapp",
+            "certificate_hash": "8c735c94ff6a0699618f3129ad028d8befa4e847"
+          }
+        },
+        {
+          "client_id": "945255550091-gkkllpd894c49gu9670qlnquova0bb5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sdp.remotehealthcareapp",
+            "certificate_hash": "dadef031c6443195d34266370fe578d00aa799cd"
+          }
+        },
         {
           "client_id": "945255550091-e4fkg2i3n9r74m6i5kl6qlumtmnbepfg.apps.googleusercontent.com",
           "client_type": 1,
