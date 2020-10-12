@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -22,10 +23,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.sdp.remotehealthcareapp.R;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class Signin extends AppCompatActivity {
@@ -36,6 +42,7 @@ public class Signin extends AppCompatActivity {
     boolean isloggedin;
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 123;
+    private static final String TAG = "Signin";
     private FirebaseAuth mAuth;
     Context context;
     public static  int signout_flag=1;
@@ -69,6 +76,15 @@ public class Signin extends AppCompatActivity {
                 signIn();
             }
         });
+
+        findViewById(R.id.phone_login_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phone_login = new Intent(getApplicationContext(), PhoneAuthActivity.class);
+                //getLayoutInflater().inflate(R.layout.activity_phone_auth, null);
+                startActivity(phone_login);
+            }
+        });
     }
 
 
@@ -94,6 +110,7 @@ public class Signin extends AppCompatActivity {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
     public void signOut() {
         FirebaseUser user = mAuth.getCurrentUser();
        if(user!=null)
@@ -152,7 +169,7 @@ public class Signin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(Signin.this, "HGYA", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signin.this, "Sign in successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                         } else {
@@ -167,5 +184,9 @@ public class Signin extends AppCompatActivity {
                 });
     }
 
+
+
+
+    //phone sign in check
 
 }

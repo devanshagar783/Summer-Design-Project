@@ -8,4 +8,18 @@
     <dimen name="btn_gap">20dp </dimen>
     <dimen name="fab_user_marginLeft">16dp</dimen>
     <dimen name="fab_user_marginTop">70dp</dimen>
+    <dimen name="imagebtn_height">125dp</dimen>
+    <dimen name="imagebtn_width">180dp</dimen>
+
+
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="icon_top_margin">24dp</dimen>
+    <dimen name="icon_bottom_margin">24dp</dimen>
+    <dimen name="title_bottom_margin">16dp</dimen>
+    <dimen name="field_width_standard">160dp</dimen>
+
+    <dimen name="button_horizontal_margin">8dp</dimen>
 </resources>
