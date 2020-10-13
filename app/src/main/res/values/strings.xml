@@ -9,6 +9,7 @@
     <string name="str_book_appointment">BOOK APPOINTMENT</string>
     <string name="str_buy_medicine">BUY MEDICINES</string>
     <string name="str_tagline">Distanced but never diseased</string>
+    <string name="question_hint">something later on</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

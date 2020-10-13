@@ -88,7 +88,7 @@
                 android:orientation="horizontal"
                 android:weightSum="3.0">
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/buttonStartVerification"
                     android:layout_marginStart="@dimen/button_horizontal_margin"
                     android:layout_marginEnd="@dimen/button_horizontal_margin"
@@ -97,7 +97,7 @@
                     android:layout_weight="1.0"
                     android:text="@string/start_phone_auth"/>
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/buttonVerifyPhone"
                     android:layout_marginStart="@dimen/button_horizontal_margin"
                     android:layout_marginEnd="@dimen/button_horizontal_margin"
@@ -106,7 +106,7 @@
                     android:layout_weight="1.0"
                     android:text="@string/verify_phone_auth"/>
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/buttonResend"
                     android:layout_marginStart="@dimen/button_horizontal_margin"
                     android:layout_marginEnd="@dimen/button_horizontal_margin"
@@ -129,7 +129,7 @@
             android:visibility="gone"
             android:weightSum="1.0">
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/signOutButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

@@ -1,4 +1,5 @@
 package com.sdp.remotehealthcareapp.Activities;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -53,10 +54,10 @@ public class PhoneAuthActivity extends AppCompatActivity implements
         phoneNumber = findViewById(R.id.fieldPhoneNumber);
         verificationId = findViewById(R.id.fieldVerificationCode);
 
-        startPhoneNumberVerification(phoneNumber.getText().toString());
+//        startPhoneNumberVerification(phoneNumber.getText().toString());
 
 
-        /*
+
         //To test using whitelisted numbers
         // The test phone number and code should be whitelisted in the console.
         String phoneNumber = "+15555555555";
@@ -80,7 +81,8 @@ public class PhoneAuthActivity extends AppCompatActivity implements
                         // Instant verification is applied and a credential is directly returned.
                         // ...
                         Log.d(TAG, "onVerificationCompleted:" + credential);
-
+                        Toast.makeText(PhoneAuthActivity.this, "Verified! Login successful", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         signInWithPhoneAuthCredential(credential);
                     }
 
@@ -93,9 +95,11 @@ public class PhoneAuthActivity extends AppCompatActivity implements
                         if (e instanceof FirebaseAuthInvalidCredentialsException) {
                             // Invalid request
                             // ...
+                            Toast.makeText(PhoneAuthActivity.this, "phone number is not linked to any account", Toast.LENGTH_SHORT).show();
                         } else if (e instanceof FirebaseTooManyRequestsException) {
                             // The SMS quota for the project has been exceeded
                             // ...
+                            Toast.makeText(PhoneAuthActivity.this, "Server overload... could not verify", Toast.LENGTH_SHORT).show();
                         }
 
                         // Show a message and update the UI
@@ -103,7 +107,8 @@ public class PhoneAuthActivity extends AppCompatActivity implements
                         //Toast.makeText(this, "Verification failed", Toast.LENGTH_SHORT).show();
                     }
                     // ...
-                });*/
+                });
+
     }
 
 
@@ -150,11 +155,12 @@ public class PhoneAuthActivity extends AppCompatActivity implements
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                     // Invalid request
                     // ...
+                    Toast.makeText(PhoneAuthActivity.this, "phone number is not linked to any account", Toast.LENGTH_SHORT).show();
                 } else if (e instanceof FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
                     // ...
+                    Toast.makeText(PhoneAuthActivity.this, "Server overload... could not verify", Toast.LENGTH_SHORT).show();
                 }
-
                 // Show a message and update the UI
                 // ...
             }
@@ -187,14 +193,15 @@ public class PhoneAuthActivity extends AppCompatActivity implements
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-
                             FirebaseUser user = task.getResult().getUser();
-                            // ...
+                            Toast.makeText(PhoneAuthActivity.this, "Verified! Login successful", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                                 // The verification code entered was invalid
+                                Toast.makeText(PhoneAuthActivity.this, "Verification failed!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
