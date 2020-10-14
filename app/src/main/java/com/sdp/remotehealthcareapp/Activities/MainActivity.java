@@ -27,6 +27,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.sdp.remotehealthcareapp.Fragments.Dashboard;
+import com.sdp.remotehealthcareapp.Fragments.HealthFiles;
 import com.sdp.remotehealthcareapp.Fragments.MyProfile;
 import com.sdp.remotehealthcareapp.R;
 
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-
+                    selectorFragment=new Dashboard();
                     if(item.getItemId() == R.id.logout) {
                         //finish();
                         /*sharedPreferences= getSharedPreferences(getString(R.string.preference_file_name), MODE_PRIVATE);
@@ -99,8 +100,15 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else if(item.getItemId() == R.id.profile){
                         selectorFragment = new MyProfile();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment,selectorFragment).addToBackStack("Profile Setup").commit();
                     }
+                    else if(item.getItemId() == R.id.healthfiles) {
+                        selectorFragment= new HealthFiles();
+                    }
+                    else if(item.getItemId()== R.id.dashboard){
+                        selectorFragment= new Dashboard();
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment,selectorFragment).addToBackStack("Profile Setup").commit();
+
                 return true;
             }
         });

@@ -4,11 +4,11 @@
         android:id="@+id/upcoming_app"
         android:title="Upcoming Appoinntments" />
     <item
-        android:id="@+id/previous_app"
-        android:title="Previous Appointments" />
+        android:id="@+id/dashboard"
+        android:title="Dashboard" />
     <item
-        android:id="@+id/prescriptions"
-        android:title="Previous Prescriptions" />
+        android:id="@+id/healthfiles"
+        android:title="Health Files" />
     <item
         android:id="@+id/profile"
         android:title="Profile Setup" />

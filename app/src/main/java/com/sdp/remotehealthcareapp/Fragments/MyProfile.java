@@ -1,5 +1,6 @@
 package com.sdp.remotehealthcareapp.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -46,6 +47,7 @@ public class MyProfile extends Fragment {
     TextView email;
     TextView gender;
     TextView address;
+    String res= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,12 +83,11 @@ public class MyProfile extends Fragment {
         HashMap<String, Object> map = new HashMap<>();
         init();
         map.put("Name", name.getText().toString());
-        map.put("number", number.getText().toString());
+        //map.put("number", number.getText().toString());
         map.put("email", email.getText().toString());
         map.put("address", address.getText().toString());
         map.put("gender", gender.getText().toString());
         map.put("age", age.getText().toString());
-        String res= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).toString();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users")
                 .document(res)
@@ -102,11 +103,34 @@ public class MyProfile extends Fragment {
                 });
     }
     private void getPreviousUser() {
-        String res= Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).toString();
+        //String res = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).toString();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Activity activity;
         db.collection("users")
+                .document(res)
                 .get()
-                .addOnCompleteListener(task -> {
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            init();
+                            name.setText(document.getString("Name"));
+                            number.setText(document.getString("number"));
+                            email.setText(document.getString("email"));
+                            address.setText(document.getString("address"));
+                            age.setText(document.getString("age"));
+                            gender.setText(document.getString("gender"));
+                            //name.setText("Ujjwal");
+                            Toast.makeText(getContext(), "Sucessfully added", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+
+
+                /*.addOnCompleteListener(task -> {
 
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : Objects.requireNonNull(task.getResult())) {
@@ -125,8 +149,8 @@ public class MyProfile extends Fragment {
                         Toast.makeText(getContext(), "Error getting documents.", Toast.LENGTH_SHORT).show();
 
                     }
-                });
-    }
+                });*/
+
     private void init() {
         name= V.findViewById(R.id.editName);
         number= V.findViewById(R.id.editPhone);

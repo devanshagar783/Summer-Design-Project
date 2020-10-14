@@ -17,9 +17,9 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Signin signin= new Signin();
-        SharedPreferences getsave= getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE);
+        //SharedPreferences getsave= getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE);
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
-        boolean loggedin= getsave.getBoolean("isLoggedin", false);
+        //boolean loggedin= getsave.getBoolean("isLoggedin", false);
         if(user==null)
             startActivity(new Intent(this, Intro_Signin.class));
         else

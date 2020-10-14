@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/healtcare_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Activities.Splash" android:theme="@style/Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activities.JoyInterface"
             android:allowBackup = "true"
@@ -29,18 +27,12 @@
 
         <activity android:name=".Activities.Intro_Signin"
             android:theme="@style/AppTheme"/>
-
         <activity  android:name=".Activities.Signin" />
-
         <activity
             android:name = ".Activities.MainActivity"
             android:label = "@string/app_name"
             android:theme = "@style/AppTheme.NoActionBar">
         </activity>
-
-        <activity android:name=".Activities.PhoneAuthActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:label="Sign in using phone number"/>
     </application>
 
 </manifest>
