@@ -69,7 +69,13 @@ public class Signin extends AppCompatActivity {
                 signIn();
             }
         });
-
+        findViewById(R.id.email).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), signup.class);
+                startActivity(intent);
+            }
+        });
         findViewById(R.id.phone_login_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
