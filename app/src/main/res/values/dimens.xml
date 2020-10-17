@@ -1,8 +1,8 @@
 <resources>
     <dimen name="fab_contactus_marginRight">16dp </dimen>
-    <dimen name="fab_contactus_marginBottom">80dp </dimen>
+    <dimen name="fab_contactus_marginBottom">16dp </dimen>
     <dimen name="fab_help_marginRight">16dp </dimen>
-    <dimen name="fab_help_marginBottom">16dp </dimen>
+    <dimen name="fab_help_marginBottom">80dp </dimen>
     <dimen name="main_textSize">22sp </dimen>
     <dimen name="btn_length">300dp </dimen>
     <dimen name="btn_gap">20dp </dimen>
