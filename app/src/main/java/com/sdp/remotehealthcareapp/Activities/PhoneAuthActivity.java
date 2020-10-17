@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
@@ -23,6 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.sdp.remotehealthcareapp.R;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.TimeUnit;
 
@@ -120,7 +121,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             @Override
-            public void onVerificationCompleted(PhoneAuthCredential credential) {
+            public void onVerificationCompleted(@NotNull PhoneAuthCredential credential) {
                 // This callback will be invoked in two situations:
                 // 1 - Instant verification. In some cases the phone number can be instantly
                 //     verified without needing to send or enter a verification code.
@@ -133,7 +134,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onVerificationFailed(FirebaseException e) {
+            public void onVerificationFailed(@NotNull FirebaseException e) {
                 // This callback is invoked in an invalid request for verification is made,
                 // for instance if the the phone number format is not valid.
                 Log.w(TAG, "onVerificationFailed", e);
@@ -241,7 +242,6 @@ public class PhoneAuthActivity extends AppCompatActivity {
         mVerificationInProgress = true;
         auth.setLanguageCode("fr");
 
-        //PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId.getText().toString(), code.getText().toString());
     }
 
 
@@ -283,7 +283,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
 
 
 
-    private void verifyPhoneNumberWithCode(String VerificationId, String code) {
+    private void verifyPhoneNumberWithCode(String mVerificationId, String code) {
         // [START verify_with_code]
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
         // [END verify_with_code]
