@@ -29,16 +29,13 @@ import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 
 public class Signin extends AppCompatActivity {
-    ViewPager viewPager;
-    WormDotsIndicator dot;
-    ViewAdapter viewAdapter;
     SharedPreferences sharedPreferences;
     boolean isloggedin;
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
-    Context context;
     public static  int signout_flag=1;
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -46,7 +43,7 @@ public class Signin extends AppCompatActivity {
         if (user != null) {
             signOut();
             FirebaseAuth.getInstance().signOut();
-            Toast.makeText(getApplicationContext(), "Once logged in", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Signed out", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -69,7 +66,13 @@ public class Signin extends AppCompatActivity {
                 signIn();
             }
         });
-
+        findViewById(R.id.email).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), signup.class);
+                startActivity(intent);
+            }
+        });
         findViewById(R.id.phone_login_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,11 +163,11 @@ public class Signin extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(Signin.this, "HGYA", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signin.this, "Signed in successfully", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                         } else {
-                            Toast.makeText(Signin.this, "Sorry auth failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Signin.this, "Sorry authentication failed.", Toast.LENGTH_SHORT).show();
 
 
                         }
