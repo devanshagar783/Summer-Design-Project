@@ -59,7 +59,7 @@ public class signup extends AppCompatActivity {
                                 else{
                                     System.out.println("Error");
                                     task.getException().printStackTrace();
-                                    Toast.makeText(signup.this, "Some error", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(signup.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
