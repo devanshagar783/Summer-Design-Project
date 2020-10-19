@@ -1,6 +1,7 @@
 package com.sdp.remotehealthcareapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.sdp.remotehealthcareapp.Activities.AttachmentReportActivity;
 import com.sdp.remotehealthcareapp.R;
 
 import java.util.Objects;
@@ -24,6 +26,7 @@ import java.util.Objects;
 public class HealthFiles extends Fragment {
     View V;
 
+    TextView userName;
     Button prescriptions;
     Button medical;
     Button at_repo;
@@ -62,18 +65,19 @@ public class HealthFiles extends Fragment {
             ft.addToBackStack("Medical");
             ft.commit();
         });
-        at_repo.setOnClickListener(v -> {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment, new At_repo());
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-            ft.addToBackStack("Attachments");
-            ft.commit();
+        at_repo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AttachmentReportActivity.class);
+                startActivity(intent);
+            }
         });
     }
 
     private void init()
     {
-
+        userName = V.findViewById(R.id.text_user);
+        userName.setText(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName());
         prescriptions= V.findViewById(R.id.button_prescriptions);
         medical= V.findViewById(R.id.button_medical);
         at_repo= V.findViewById(R.id.button_at_repo);

@@ -40,7 +40,7 @@
 
 
     <TextView
-        android:id="@+id/text_user"
+        android:id="@+id/user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -56,13 +56,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/image_upload"
+        android:id="@+id/image_open"
         android:layout_width="36dp"
         android:layout_height="39dp"
         android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_user"
+        app:layout_constraintTop_toBottomOf="@+id/user_name"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/doctor_image" />
 
@@ -85,11 +85,21 @@
         android:textColor="#0E0E0E"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_marginBottom="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/upload_image"
         app:layout_constraintTop_toBottomOf="@+id/image_uploadshow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+    
+    <Button
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text="Upload Image"
+        android:id="@+id/upload_image"
+        app:layout_constraintTop_toBottomOf="@+id/image_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
