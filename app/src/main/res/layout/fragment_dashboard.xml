@@ -32,12 +32,12 @@
         android:id="@+id/fab_contactus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/fab_help"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:backgroundTint="#99005500"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_contactus_marginRight"
         android:layout_marginBottom="@dimen/fab_contactus_marginBottom"
+        android:backgroundTint="#99005500"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

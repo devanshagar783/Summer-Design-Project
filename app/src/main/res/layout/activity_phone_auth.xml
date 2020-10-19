@@ -68,9 +68,9 @@
                     android:id="@+id/fieldPhoneNumber"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint_phone_number"
                     android:layout_weight="1.0"
-                    android:inputType="phone"/>
+                    android:hint="@string/hint_phone_number"
+                    android:inputType="phone" />
 
                 <EditText
                     android:id="@+id/fieldVerificationCode"
