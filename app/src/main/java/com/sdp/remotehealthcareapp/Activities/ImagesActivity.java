@@ -23,6 +23,7 @@ import com.sdp.remotehealthcareapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
     private RecyclerView mRecView;
@@ -50,8 +51,12 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mRecView.setAdapter(mImageAdapter);
         mImageAdapter.setOnItemClickListener(ImagesActivity.this);
 
+        String email = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
+        assert email != null;
+        String user_email = email.substring(0,email.indexOf("@"));
+
         mStorage = FirebaseStorage.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads/"+user_email);
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override

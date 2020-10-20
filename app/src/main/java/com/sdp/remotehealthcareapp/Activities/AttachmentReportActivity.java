@@ -72,8 +72,12 @@ public class AttachmentReportActivity extends AppCompatActivity {
         getPrevious = (TextView) findViewById(R.id.see_previous);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("uploads");
-        storageReference = FirebaseStorage.getInstance().getReference("uploads");
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        assert email != null;
+        String user_email = email.substring(0,email.indexOf("@"));
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("uploads/"+ user_email);
+        storageReference = FirebaseStorage.getInstance().getReference("uploads/"+user_email);
 
         openImage.setOnClickListener(new View.OnClickListener() {
             @Override
