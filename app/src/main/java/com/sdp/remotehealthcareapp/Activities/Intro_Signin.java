@@ -20,7 +20,7 @@ public class Intro_Signin extends AppCompatActivity {
         setContentView(R.layout.slides);
         viewPager= findViewById(R.id.view_pager);
         dot= findViewById(R.id.dot);
-        viewAdapter= new ViewAdapter(this);
+        viewAdapter= new ViewAdapter(Intro_Signin.this);
         viewPager.setAdapter(viewAdapter);
         dot.setViewPager(viewPager);
     }

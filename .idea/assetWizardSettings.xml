@@ -150,7 +150,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\Abhishar\Desktop\Github 3.0\Summer-Design-Project\app\src\main\res\drawable\doctor_image.png" />
+                                                <entry key="imagePath" value="C:\Users\Abhishar\Desktop\Github 3.0\Summer-Design-Project\app\src\main\res\drawable\verified_image.png" />
                                                 <entry key="paddingPercent" value="-10" />
                                               </map>
                                             </option>
@@ -185,8 +185,8 @@
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="backgroundColor" value="fff4fd" />
-                                      <entry key="imageAsset" value="C:\Users\Abhishar\Desktop\Github 3.0\Summer-Design-Project\app\src\main\res\drawable\doctor_image.png" />
-                                      <entry key="outputName" value="ic_doctor" />
+                                      <entry key="imageAsset" value="C:\Users\Abhishar\Desktop\Github 3.0\Summer-Design-Project\app\src\main\res\drawable\verified_image.png" />
+                                      <entry key="outputName" value="ic_verified" />
                                     </map>
                                   </option>
                                 </PersistentState>

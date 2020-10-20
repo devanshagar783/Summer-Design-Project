@@ -54,7 +54,7 @@ public class Signin extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.signin);
-        sharedPreferences= getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE);
+        sharedPreferences= getSharedPreferences(getString(R.string.preference_file_name_login), Context.MODE_PRIVATE);
         isloggedin= sharedPreferences.getBoolean("isLoggedin",false);
 
         createRequest();

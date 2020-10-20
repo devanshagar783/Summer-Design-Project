@@ -5,12 +5,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
@@ -21,10 +23,17 @@ import com.google.firebase.auth.FirebaseAuthSettings;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 import com.sdp.remotehealthcareapp.R;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class PhoneAuthActivity extends AppCompatActivity {
@@ -115,6 +124,14 @@ public class PhoneAuthActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 signOut();
+            }
+        });
+
+        findViewById(R.id.button_register).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveName_pwd();
+                startActivity(new Intent(PhoneAuthActivity.this, MainActivity.class));
             }
         });
 
@@ -247,6 +264,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
 
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -255,8 +273,15 @@ public class PhoneAuthActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
-                            Toast.makeText(PhoneAuthActivity.this, "Verified! Login successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            Toast.makeText(PhoneAuthActivity.this, "Verified! Enter Name for final step", Toast.LENGTH_SHORT).show();
+                            /*if(checkRegister())
+                            {
+                                startActivity(new Intent(PhoneAuthActivity.this, MainActivity.class));
+                            }
+                            else {*/
+                                findViewById(R.id.before_login).setVisibility(View.INVISIBLE);
+                                findViewById(R.id.after_login).setVisibility(View.VISIBLE);
+                            //}
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -308,6 +333,36 @@ public class PhoneAuthActivity extends AppCompatActivity {
 
     private void signOut() {
         mAuth.signOut();
+    }
+    private void saveName_pwd() {
+        HashMap<String, Object> map = new HashMap<>();
+        TextView name= findViewById(R.id.fieldName);
+        TextView no= findViewById(R.id.fieldPhoneNumber);
+        map.put("Name", name.getText().toString());
+        map.put("number ", no.getText().toString());
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users")
+                .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .set(map, SetOptions.merge());
+
+    }
+
+    //checking previous login or not, return true if record exists else return false
+    private boolean checkRegister(){
+        TextView phone=findViewById(R.id.fieldPhoneNumber);
+        final Boolean[] str = {false};
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users")
+                .whereEqualTo("number", phone.getText().toString())
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        str[0] =true;
+                        //Toast.makeText(PhoneAuthActivity.this, "Record Found", Toast.LENGTH_SHORT).show();
+                    }
+                });
+        return str[0];
     }
 
 }

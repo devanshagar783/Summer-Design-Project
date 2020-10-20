@@ -1,46 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/text_more2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/baloo"
+        android:text="Login with"
+        android:textColor="#474343"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_more" />
+
     <ImageView
         android:id="@+id/google_pic"
-        android:layout_width="245dp"
-        android:layout_height="211dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/google" />
 
     <TextView
         android:id="@+id/text_signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/google_pic"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/baloo"
-        android:text="Sign In"
+        android:text="Create your account"
         android:textColor="#0B0A0A"
-        android:textSize="36sp"
+        android:textSize="30dp"
         android:textStyle="bold"
-        android:layout_below="@id/google_pic" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/google_pic" />
+
 
     <Button
         android:id="@+id/google_signin"
-        android:layout_width="287dp"
-        android:layout_height="46dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/text_signin"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/btn_rounded"
         android:drawableLeft="@drawable/googleg_standard_color_18"
-        android:drawablePadding="20dip"
-        android:elevation="8dp"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/baloo"
         android:orientation="horizontal"
-        android:text="Sign In With Google "
-        android:textStyle="bold" />
-
+        android:text="Sign Up With Google "
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_more2" />
 
     <ImageView
         android:id="@+id/email"
@@ -49,9 +75,10 @@
         android:layout_below="@+id/text_more"
         android:layout_alignBaseline="@id/phone_login_btn"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="68dp"
+        app:layout_constraintEnd_toEndOf="@+id/text_signin"
+        app:layout_constraintTop_toBottomOf="@+id/text_signin"
         app:srcCompat="@drawable/email" />
 
     <ImageButton
@@ -60,21 +87,27 @@
         android:layout_height="42dp"
         android:layout_below="@id/text_more"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="136dp"
+        android:layout_alignBaseline="@id/email"
+        android:layout_marginTop="20dp"
         android:background="@drawable/phone"
-        android:contentDescription="signin using phone number" />
+        android:contentDescription="signin using phone number"
+        app:layout_constraintEnd_toStartOf="@+id/email"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="@+id/text_signin"
+        app:layout_constraintTop_toBottomOf="@+id/text_signin" />
 
     <TextView
         android:id="@+id/text_more"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:fontFamily="@font/baloo"
-        android:text="More Sign In Options"
-        android:textColor="#474343"
-        android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/google_signin" />
-</RelativeLayout>
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/baloo"
+        android:text="Already have an account?"
+        android:textColor="#474343"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_login_btn" />
+</androidx.constraintlayout.widget.ConstraintLayout>

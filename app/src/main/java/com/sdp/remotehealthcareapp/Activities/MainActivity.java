@@ -19,13 +19,18 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.sdp.remotehealthcareapp.Fragments.Dashboard;
 import com.sdp.remotehealthcareapp.Fragments.HealthFiles;
 import com.sdp.remotehealthcareapp.Fragments.MyProfile;
@@ -61,11 +66,25 @@ public class MainActivity extends AppCompatActivity {
     private void getProfile(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user !=null) {
-            String name = user.getDisplayName();
             NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
             View headerView = navigationView.getHeaderView(0);
             TextView navUsername = (TextView) headerView.findViewById(R.id.user_name);
-            navUsername.setText(name);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            db.collection("users")
+                    .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                String name= (document.getString("Name"));
+                                navUsername.setText(name);
+
+                            }
+                        }
+                    });
         }
     }
 
@@ -108,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                         selectorFragment= new Dashboard();
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment,selectorFragment).addToBackStack("Profile Setup").commit();
-
+                    drawerLayout.closeDrawers();
                 return true;
             }
         });
@@ -127,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() == android.R.id.home)
         {
             drawerLayout.openDrawer(GravityCompat.START);
-
         }
         return super.onOptionsItemSelected(item);
     }

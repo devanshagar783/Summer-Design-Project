@@ -7,7 +7,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Splash" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Splash" parent="Theme.AppCompat.DayNight.DarkActionBar">
     <item name="android:windowBackground">@drawable/splash_1 </item>
     </style>
 

@@ -15,17 +15,17 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:elevation="0dp" >
+
             <androidx.appcompat.widget.Toolbar
-                app:title="Dashboard"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark"
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
-                app:layout_scrollFlags="scroll|enterAlways"/>
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:title="Dashboard" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout

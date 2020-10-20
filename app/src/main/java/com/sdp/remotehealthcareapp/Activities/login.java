@@ -14,7 +14,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.sdp.remotehealthcareapp.R;
+
+import java.util.HashMap;
 
 public class login extends AppCompatActivity {
     private EditText email;
@@ -24,11 +28,11 @@ public class login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_email_login);
 
-        email = (EditText)findViewById(R.id.emailid);
-        pw = (EditText)findViewById(R.id.pwid);
-        login = (Button)findViewById(R.id.login);
+        email = (EditText)findViewById(R.id.text_loginemail_id);
+        pw = (EditText)findViewById(R.id.text_loginpwid);
+        login = (Button)findViewById(R.id.button_email_login);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +43,8 @@ public class login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if(task.isSuccessful()){
                                     if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()){
+                                        Intent intent=getIntent();
+                                        saveName_pwd();
                                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     }
                                     else
@@ -50,5 +56,17 @@ public class login extends AppCompatActivity {
                         });
             }
         });
+    }
+
+    private void saveName_pwd() {
+        HashMap<String, Object> map = new HashMap<>();
+        Intent intent=getIntent();
+        map.put("Name", intent.getStringExtra("accountname"));
+        map.put("password", intent.getStringExtra("password"));
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users")
+                .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .set(map, SetOptions.merge());
+
     }
 }
