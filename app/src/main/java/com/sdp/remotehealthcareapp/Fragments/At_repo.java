@@ -4,24 +4,29 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.sdp.remotehealthcareapp.R;
@@ -33,12 +38,11 @@ import java.util.Objects;
 public class At_repo extends Fragment {
 
     View V;
-
-    private Button buttonChoose;
-    private Button add_new;
-    private EditText editTextName;
-    private TextView textViewShow;
-    private ImageView imageView;
+    private TextView textViewShow; // for display9ing user's name
+    private ImageView openImage; // open new image
+    private ImageView showImage; // shows the image opened
+    private TextView imageName; // shows image name
+    private Button upload; // upload image
 
     private ProgressDialog progressDialog;
     private Uri filePath = null;
@@ -64,13 +68,28 @@ public class At_repo extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         V=inflater.inflate(R.layout.fragment_attachments, container, false);
-        textViewShow=V.findViewById(R.id.text_user);
+        textViewShow=V.findViewById(R.id.user_name);
         textViewShow.setText(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName());
-        add_new= V.findViewById(R.id.image_upload);
-        imageView= V.findViewById(R.id.image_uploadshow);
+        openImage= V.findViewById(R.id.image_open);
+        showImage= V.findViewById(R.id.image_uploadshow);
+        imageName= V.findViewById(R.id.image_name);
+        upload = V.findViewById(R.id.upload_image);
+
 
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        openImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view == openImage) {
+                    showFileChooser();
+                } else if (view == upload) {
+
+                } else if (view == textViewShow) {
+
+                }
+            }
+        });
 
 
 
@@ -81,7 +100,7 @@ public class At_repo extends Fragment {
         firebaseFirestore = FirebaseFirestore.getInstance();
         //storageReference = FirebaseStorage.getInstance().getReference();
 
-        add_new.setOnClickListener(new View.OnClickListener() {
+        upload.setOnClickListener(new View.OnClickListener() {
                                          @Override
                                          public void onClick(View view) {
 

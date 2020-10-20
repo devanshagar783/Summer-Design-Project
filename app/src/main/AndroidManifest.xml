@@ -13,9 +13,13 @@
         android:hardwareAccelerated="false"
         android:largeHeap="true"
         android:theme = "@style/AppTheme">
+        <activity android:name = ".Activities.ImagesActivity">
+        </activity>
         <activity android:name = ".Activities.login">
         </activity>
         <activity android:name = ".Activities.signup">
+        </activity>
+        <activity android:name = ".Activities.AttachmentReportActivity">
         </activity>
         <activity
             android:name = ".Activities.Splash"

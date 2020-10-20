@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:background = "#0C0C0C"
+    android:backgroundTint = "#F6F2F2"
+    >
+    
+    <ImageView
+        android:id = "@+id/user_image"
+        android:layout_width = "86dp"
+        android:layout_height = "66dp"
+        android:src = "@drawable/user_icon"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintHorizontal_bias = "0.0"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toTopOf = "parent"
+        app:layout_constraintVertical_bias = "0.00"
+        />
+    
+    <TextView
+        android:id = "@+id/text_prescription"
+        style = "@style/Textstyle"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:backgroundTint = "#020202"
+        android:fontFamily = "@font/boogaloo"
+        android:gravity = "center"
+        android:text = "Attachments and reports"
+        android:textColor = "#0C0C0C"
+        android:textSize = "30sp"
+        android:textStyle = "bold"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toBottomOf = "@+id/user_image"
+        app:layout_constraintVertical_bias = "0.0"
+        />
+    
+    
+    <TextView
+        android:id = "@+id/user_name"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginTop = "25dp"
+        android:fontFamily = "@font/baloo"
+        android:text = "Ujjwal Shrivastav"
+        android:textAllCaps = "true"
+        android:textColor = "#0E0E0E"
+        android:textSize = "14sp"
+        android:textStyle = "bold"
+        app:layout_constraintBottom_toTopOf = "@+id/text_healthfiles"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toEndOf = "@+id/user_image"
+        app:layout_constraintTop_toTopOf = "parent"
+        />
+    
+    <ImageView
+        android:id = "@+id/image_open"
+        android:layout_width = "36dp"
+        android:layout_height = "39dp"
+        android:layout_marginEnd = "4dp"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintTop_toBottomOf = "@+id/user_name"
+        app:layout_constraintVertical_bias = "0.0"
+        app:srcCompat = "@drawable/doctor_image"
+        />
+    
+    <ImageView
+        android:id = "@+id/image_uploadshow"
+        android:layout_width = "351dp"
+        android:layout_height = "379dp"
+        app:layout_constraintBottom_toTopOf = "@+id/image_name"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toBottomOf = "@+id/text_prescription"
+        app:srcCompat = "@drawable/five"
+        />
+    
+    <EditText
+        android:id = "@+id/image_name"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:hint="This is name of image"
+        android:textAllCaps = "true"
+        android:textColor = "#0E0E0E"
+        android:textSize = "14sp"
+        android:textStyle = "bold"
+        app:layout_constraintBottom_toTopOf = "@+id/upload_image"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toBottomOf = "@+id/image_uploadshow"
+        />
+    
+    <ProgressBar
+        android:id = "@+id/progress_bar"
+        style = "@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        app:layout_constraintBottom_toTopOf = "@+id/upload_image"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toBottomOf = "@+id/image_name"
+        />
+    
+    <Button
+        android:id = "@+id/upload_image"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text = "Upload Image"
+        app:layout_constraintBottom_toTopOf = "@+id/see_previous"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toBottomOf = "@+id/image_name"
+        />
+    
+    <TextView
+        android:id = "@+id/see_previous"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_marginBottom = "20dp"
+        android:fontFamily = "@font/baloo"
+        android:text = "Show Previous Reports"
+        android:textAllCaps = "true"
+        android:textColor = "#0E0E0E"
+        android:textSize = "14sp"
+        android:textStyle = "bold"
+        app:layout_constraintBottom_toBottomOf = "parent"
+        app:layout_constraintEnd_toEndOf = "parent"
+        app:layout_constraintStart_toStartOf = "parent"
+        app:layout_constraintTop_toBottomOf = "@+id/upload_image"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
