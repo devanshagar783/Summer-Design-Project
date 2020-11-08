@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     else if(item.getItemId() == R.id.about){
                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
                                 .setTitle("About Hygeia")
-                                .setMessage("Build and published by \nAkshat Srivastava\nDevansh Agarwal\nUjjwal Shrivastava\n"+"\nIf you want to hire us or\n"+"if you want to check our other works\n"+"Take a look at:")
+                                .setMessage("Build and published by \nAkshat Srivastava(201851013)\nDevansh Agarwal(201851038)\nUjjwal Shrivastava(201851136)\n"+"\nIf you want to hire us or\n"+"if you want to check our other works\n"+"Take a look at:")
                                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {

@@ -19,16 +19,16 @@ public class MyWebViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_web_view);
         String url="";
         try{
-
             url = getIntent().getStringExtra("url");
         }catch(NullPointerException e){
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            url = "https://google.com/";
         }
 
         webView = (WebView)findViewById(R.id.webView);
         webView.setWebViewClient(new WebViewClient());
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://google.com/");
+        webView.loadUrl(url);
     }
 
     @Override
