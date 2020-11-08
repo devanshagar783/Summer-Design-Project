@@ -9,6 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -125,6 +127,25 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else if(item.getItemId()== R.id.dashboard){
                         selectorFragment= new Dashboard();
+                    }
+                    else if(item.getItemId() == R.id.about){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
+                                .setTitle("About Hygeia")
+                                .setMessage("Build and published by \nAkshat Srivastava\nDevansh Agarwal\nUjjwal Shrivastava\n"+"\nIf you want to hire us or\n"+"if you want to check our other works\n"+"Take a look at:")
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Intent intent = new Intent(MainActivity.this, MyWebViewActivity.class);
+                                        intent.putExtra("url","https://meicode.org");
+                                        startActivity(intent);
+                                    }
+                                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    }
+                                });
+                        builder.create().show();
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment,selectorFragment).addToBackStack("Profile Setup").commit();
                     drawerLayout.closeDrawers();

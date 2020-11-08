@@ -25,6 +25,9 @@
         android:id="@+id/faq"
         android:title="FAQ" />
     <item
+        android:id="@+id/about"
+        android:title="About us"/>
+    <item
         android:id="@+id/logout"
         android:title="Logout" />
 
