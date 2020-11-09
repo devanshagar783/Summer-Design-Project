@@ -5,143 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.MainActivity"
-    android:background="@drawable/whitishblur_main_bg"
     android:scrollbars="none">
-
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/main_heart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/main_heart" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/main_heart"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/btn_gap"
-        android:layout_marginEnd="@dimen/fab_help_marginRight"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="@string/str_tagline" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_contactus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/fab_help"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_contactus_marginRight"
-        android:layout_marginBottom="@dimen/fab_contactus_marginBottom"
-        android:backgroundTint="#99005500"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_help"
-        android:layout_width="110dp"
-        android:layout_height="96dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:backgroundTint="#99005500"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_help_marginRight"
-        android:layout_marginBottom="@dimen/fab_help_marginBottom"
-        app:srcCompat="@drawable/fab_help" />
-
-
-    <ImageButton
-        android:id="@+id/btn_self_assessment"
-        android:layout_width="@dimen/imagebtn_width"
-        android:layout_height="@dimen/imagebtn_height"
-        android:layout_above="@+id/btn_buy_medicine"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/joy" />
-
-    <ImageButton
-        android:id="@+id/btn_book_appointment"
-        android:layout_width="@dimen/imagebtn_width"
-        android:layout_height="@dimen/imagebtn_height"
-        android:layout_above="@+id/btn_near_me"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="30dp"
-        android:layout_toRightOf="@+id/btn_self_assessment"
-        android:background="@drawable/book_appointment_cover" />
-
-    <ImageButton
-        android:id="@+id/btn_buy_medicine"
-        android:layout_width="@dimen/imagebtn_width"
-        android:layout_height="@dimen/imagebtn_height"
-        android:layout_above="@+id/fab_contactus"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/buy_medicines_cover"
-        android:layout_marginBottom="45dp"/>
-
-    <ImageButton
-        android:id="@+id/btn_near_me"
-        android:layout_width="@dimen/imagebtn_width"
-        android:layout_height="@dimen/imagebtn_height"
-        android:layout_above="@+id/fab_contactus"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="45dp"
-        android:layout_toRightOf="@+id/btn_buy_medicine"
-        android:background="@drawable/near_me_cover" />
-
-
-    <!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/btn_self_assessment"-->
-<!--        android:layout_width="@dimen/btn_length"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="120dp"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_centerVertical="true"-->
-<!--        android:background="#99000000"-->
-<!--        android:clickable="true"-->
-<!--        android:longClickable="true"-->
-<!--        android:text="@string/str_self_assessment"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:textSize="@dimen/main_textSize"-->
-<!--        android:textStyle="bold" />-->
-
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/btn_book_appointment"-->
-<!--        android:layout_width="@dimen/btn_length"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_below="@+id/btn_self_assessment"-->
-<!--        android:layout_marginTop="@dimen/btn_gap"-->
-<!--        android:background="#99000000"-->
-<!--        android:clickable="true"-->
-<!--        android:longClickable="true"-->
-<!--        android:text="@string/str_book_appointment"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:textSize="@dimen/main_textSize"-->
-<!--        android:textStyle="bold"/>-->
-
-<!--    <androidx.appcompat.widget.AppCompatButton-->
-<!--        android:id="@+id/btn_buy_medicine"-->
-<!--        android:layout_width="@dimen/btn_length"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_below="@+id/btn_book_appointment"-->
-<!--        android:layout_marginTop="@dimen/btn_gap"-->
-<!--        android:background="#99000000"-->
-<!--        android:clickable="true"-->
-<!--        android:longClickable="true"-->
-<!--        android:text="@string/str_buy_medicine"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:textSize="@dimen/main_textSize"-->
-<!--        android:textStyle="bold"-->
-<!--        />-->
+    
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:background="@color/colorPrimary"
+        app:tabTextColor="@color/colorAccent"
+        android:id="@+id/main_tab"/>
+    
+    
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/main_tabs_pager"
+        android:layout_below="@+id/main_tab"/>
+    
+        
 
 </RelativeLayout>
