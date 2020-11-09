@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         Intent intent = new Intent(MainActivity.this, MyWebViewActivity.class);
-                                        intent.putExtra("url","https://meicode.org");
+                                        intent.putExtra("url","https://www.example.com/");
                                         startActivity(intent);
                                     }
                                 }).setNegativeButton("No", new DialogInterface.OnClickListener() {

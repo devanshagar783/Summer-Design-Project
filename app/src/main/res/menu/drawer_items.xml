@@ -34,7 +34,7 @@
         android:icon="@drawable/ic_baseline_question_answer"/>
     <item
         android:id="@+id/about"
-        android:title="About us"
+        android:title="Contact Us"
         android:icon="@drawable/ic_baseline_contact_us"/>
     <item
         android:id="@+id/logout"
