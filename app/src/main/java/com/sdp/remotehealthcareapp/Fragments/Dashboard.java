@@ -6,58 +6,88 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.sdp.remotehealthcareapp.Activities.TabAccessorAdapter;
 import com.sdp.remotehealthcareapp.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Dashboard extends Fragment {
 
     View v;
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    private TabAccessorAdapter tabAccessorAdapter;
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
-    public static Dashboard newInstance(String param1, String param2) {
-        Dashboard fragment = new Dashboard();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     public Dashboard() {
-        // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_dashboard, container, false);
-
-        viewPager = (ViewPager)v.findViewById(R.id.main_tabs_pager);
-        tabAccessorAdapter = new TabAccessorAdapter(getFragmentManager());
-        viewPager.setAdapter(tabAccessorAdapter);
-
-        tabLayout = (TabLayout)v.findViewById(R.id.main_tab);
+        viewPager = (ViewPager) v.findViewById(R.id.main_tabs_pager);
+        setupViewPager(viewPager);
+        tabLayout = (TabLayout) v.findViewById(R.id.main_tab);
         tabLayout.setupWithViewPager(viewPager);
         return v;
     }
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
+        adapter.addFragment(new Tab1(), "Tab 1");
+        adapter.addFragment(new Tab2(), "Tab 2");
+        adapter.addFragment(new Tab3(), "Tab 3");
+        viewPager.setAdapter(adapter);
+    }
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "Tab1";
+                case 1:
+                    return "Tab2";
+                case 2:
+                    return "Tab3";
+                default:
+                    return null;
+                // return null to display only the icon
+            }
+        }
+    }
 }
+
+
