@@ -8,6 +8,16 @@
     tools:context = ".Activities.ImagesActivity"
     >
     
+    <TextView
+        android:id = "@+id/noData"
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:layout_centerInParent = "true"
+        android:text = "There is no data to display"
+        android:textAlignment = "center"
+        android:textSize = "26sp"
+        />
+    
     <ProgressBar
         android:id = "@+id/progress_circle"
         android:layout_width = "wrap_content"

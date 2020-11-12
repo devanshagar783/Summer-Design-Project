@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,6 +30,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
     private RecyclerView mRecView;
     private ImageAdapter mImageAdapter;
     private ProgressBar mProgressCircle;
+    private TextView textView;
 
     private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
@@ -43,6 +45,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mRecView = (RecyclerView) findViewById(R.id.recView);
         mRecView.setHasFixedSize(true);
         mRecView.setLayoutManager(new LinearLayoutManager(this));
+        textView = (TextView) findViewById(R.id.noData);
 
         mProgressCircle = (ProgressBar) findViewById(R.id.progress_circle);
 
@@ -53,20 +56,26 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
         String email = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getEmail();
         assert email != null;
-        String user_email = email.substring(0,email.indexOf("@"));
+        String user_email = email.substring(0, email.indexOf("@"));
 
         mStorage = FirebaseStorage.getInstance();
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads/"+user_email);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads/" + user_email);
 
         mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mUploads.clear();
+                int count = 0;
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
                     upload.setmKey(postSnapshot.getKey());
                     mUploads.add(upload);
+                    ++count;
                 }
+                if (count == 0)
+                    textView.setVisibility(View.VISIBLE);
+                else
+                    textView.setVisibility(View.GONE);
                 mImageAdapter.notifyDataSetChanged();
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
