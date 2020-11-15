@@ -121,7 +121,7 @@
         android:layout_height="wrap_content"
         android:drawableRight="@mipmap/ic_notverified"
         android:ems="10"
-        android:clickable="false"
+        android:focusable="false"
         android:fontFamily="@font/baloo"
         android:hint="Email"
         android:inputType="textEmailAddress"

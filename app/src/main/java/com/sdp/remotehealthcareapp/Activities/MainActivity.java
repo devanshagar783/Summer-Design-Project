@@ -33,10 +33,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.sdp.remotehealthcareapp.Fragments.AppointmentFragment;
-import com.sdp.remotehealthcareapp.Fragments.Dashboard;
-import com.sdp.remotehealthcareapp.Fragments.HealthFiles;
-import com.sdp.remotehealthcareapp.Fragments.MyProfile;
+import com.sdp.remotehealthcareapp.Activities.Login.PhoneAuthActivity;
+import com.sdp.remotehealthcareapp.Fragments.Appointments.AppointmentFragment;
+import com.sdp.remotehealthcareapp.Fragments.HealthFiles.HealthFiles;
+import com.sdp.remotehealthcareapp.Fragments.HealthFiles.MyProfile;
+import com.sdp.remotehealthcareapp.Fragments.Home.Dashboard;
 import com.sdp.remotehealthcareapp.Fragments.RecentAppointment_Fragment;
 import com.sdp.remotehealthcareapp.R;
 
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                     {
                         selectorFragment= new RecentAppointment_Fragment();
                     }
-                    else if(item.getItemId() == R.id.about){
+                   else if(item.getItemId() == R.id.about){
                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
                                 .setTitle("About Hygeia")
                                 .setMessage("Build and published by \nAkshat Srivastava(201851013)\nDevansh Agarwal(201851038)\nUjjwal Shrivastava(201851136)\n"+"\nIf you want to hire us or\n"+"if you want to check our other works\n"+"Have a look at our website:")

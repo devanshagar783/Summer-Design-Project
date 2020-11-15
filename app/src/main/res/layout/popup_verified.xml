@@ -21,6 +21,7 @@
         android:layout_height="50dp"
         android:background="@drawable/bg_ui"
         android:text="Done"
+        android:id="@+id/popup_done"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

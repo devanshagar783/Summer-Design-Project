@@ -11,9 +11,9 @@
         android:backgroundTint="#40c4ff"
         >
         <com.mikhaellopez.circularimageview.CircularImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="75dp"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="15dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/surgeon_image"
             android:id="@+id/booked_image" />
@@ -22,10 +22,10 @@
             android:layout_height="wrap_content"
             android:text="Name of doctor"
 
-            android:fontFamily="@font/baloo"
-            android:textSize="16sp"
+            android:fontFamily="@font/boogaloo"
+            android:textSize="20sp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="145dp"
+            android:layout_marginTop="175dp"
             android:id="@+id/booked_name"
             />
     </androidx.cardview.widget.CardView>
