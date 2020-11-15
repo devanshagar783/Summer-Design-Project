@@ -1,8 +1,10 @@
 package com.sdp.remotehealthcareapp.Activities;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,8 +26,6 @@ import com.google.firebase.auth.FirebaseAuthSettings;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
@@ -52,6 +53,8 @@ public class PhoneAuthActivity extends AppCompatActivity {
 
     private EditText phoneNumber;
     private EditText smsCode;
+    private TextView tvLogin;
+
 
     @Override
     public void onStart() {
@@ -71,12 +74,14 @@ public class PhoneAuthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone_auth);
+        setContentView(R.layout.activity_phoneauth);
 
 
         phoneNumber = findViewById(R.id.fieldPhoneNumber);
         smsCode = findViewById(R.id.fieldVerificationCode);
         mAuth = FirebaseAuth.getInstance();
+        tvLogin= findViewById(R.id.tvLogin);
+        signOut();
 
         findViewById(R.id.buttonStartVerification).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,14 +104,13 @@ public class PhoneAuthActivity extends AppCompatActivity {
         findViewById(R.id.buttonVerifyPhone).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                phoneNumber = findViewById(R.id.fieldPhoneNumber);
-                smsCode = findViewById(R.id.fieldVerificationCode);
 
                 if (TextUtils.isEmpty(smsCode.getText().toString())) {
                     smsCode.setError("Cannot be empty.");
                     return;
                 }
                 verifyPhoneNumberWithCode(mVerificationId, smsCode.getText().toString());
+                //startActivity(new Intent(PhoneAuthActivity.this, CreateAccount.class));
             }
         });
 
@@ -120,20 +124,25 @@ public class PhoneAuthActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.signOutButton).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.signOutButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signOut();
             }
-        });
+        });*/
+/*
 
         findViewById(R.id.button_register).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveName_pwd();
                 startActivity(new Intent(PhoneAuthActivity.this, MainActivity.class));
+                Toast.makeText(PhoneAuthActivity.this, "Account Created!.Loggin in", Toast.LENGTH_SHORT).show();
+
             }
         });
+*/
+
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
@@ -146,7 +155,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
                 //     detect the incoming verification SMS and perform verification without
                 //     user action.
                 Log.d(TAG, "onVerificationCompleted:" + credential);
-
+                //ye_removethis
                 signInWithPhoneAuthCredential(credential);
             }
 
@@ -168,7 +177,6 @@ public class PhoneAuthActivity extends AppCompatActivity {
                 // Show a message and update the UI
                 // ...
             }
-
             @Override
             public void onCodeSent(@NonNull String verificationId,
                                    @NonNull PhoneAuthProvider.ForceResendingToken token) {
@@ -186,64 +194,6 @@ public class PhoneAuthActivity extends AppCompatActivity {
         };
 
     }
-
-//        startPhoneNumberVerification(phoneNumber.getText().toString());
-
-/*
-        //To test using whitelisted numbers
-        // The test phone number and code should be whitelisted in the console.
-        String phoneNumber = "+15555555555";
-        String smsCode = "123456";
-
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseAuthSettings firebaseAuthSettings = firebaseAuth.getFirebaseAuthSettings();
-
-        // Configure faking the auto-retrieval with the whitelisted numbers.
-        firebaseAuthSettings.setAutoRetrievedSmsCodeForPhoneNumber(phoneNumber, smsCode);
-
-        PhoneAuthProvider phoneAuthProvider = PhoneAuthProvider.getInstance();
-        phoneAuthProvider.verifyPhoneNumber(
-                phoneNumber,
-                60L,
-                TimeUnit.SECONDS,
-                this, // activity
-                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                    @Override
-                    public void onVerificationCompleted(PhoneAuthCredential credential) {
-                        // Instant verification is applied and a credential is directly returned.
-                        // ...
-                        Log.d(TAG, "onVerificationCompleted:" + credential);
-                        Toast.makeText(PhoneAuthActivity.this, "Verified! Login successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        signInWithPhoneAuthCredential(credential);
-                    }
-
-                    @Override
-                    public void onVerificationFailed(FirebaseException e) {
-                        // This callback is invoked in an invalid request for verification is made,
-                        // for instance if the the phone number format is not valid.
-                        Log.w(TAG, "onVerificationFailed", e);
-
-                        if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                            // Invalid request
-                            // ...
-                            Toast.makeText(PhoneAuthActivity.this, "phone number is not linked to any account", Toast.LENGTH_SHORT).show();
-                        } else if (e instanceof FirebaseTooManyRequestsException) {
-                            // The SMS quota for the project has been exceeded
-                            // ...
-                            Toast.makeText(PhoneAuthActivity.this, "Server overload... could not verify", Toast.LENGTH_SHORT).show();
-                        }
-
-                        // Show a message and update the UI
-                        // ...
-                        //Toast.makeText(this, "Verification failed", Toast.LENGTH_SHORT).show();
-                    }
-                    // ...
-                });
-*/
-
-
-
     private void startPhoneNumberVerification(String phoneNumber) {
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -260,9 +210,6 @@ public class PhoneAuthActivity extends AppCompatActivity {
         auth.setLanguageCode("fr");
 
     }
-
-
-
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
 
         mAuth.signInWithCredential(credential)
@@ -273,15 +220,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
-                            Toast.makeText(PhoneAuthActivity.this, "Verified! Enter Name for final step", Toast.LENGTH_SHORT).show();
-                            /*if(checkRegister())
-                            {
-                                startActivity(new Intent(PhoneAuthActivity.this, MainActivity.class));
-                            }
-                            else {*/
-                                findViewById(R.id.before_login).setVisibility(View.INVISIBLE);
-                                findViewById(R.id.after_login).setVisibility(View.VISIBLE);
-                            //}
+                            checkRegister();
                         } else {
                             // Sign in failed, display a message and update the UI
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -296,6 +235,27 @@ public class PhoneAuthActivity extends AppCompatActivity {
 
 
 
+    private void verifyPhoneNumberWithCode(String mVerificationId, String code) {
+        // [START verify_with_code]
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
+        // [END verify_with_code]
+        signInWithPhoneAuthCredential(credential);
+    }
+    /*private void saveName_pwd() {
+        HashMap<String, Object> map = new HashMap<>();
+        TextView name= findViewById(R.id.fieldName);
+        TextView no= findViewById(R.id.fieldPhoneNumber);
+        map.put("Name", name.getText().toString());
+        map.put("number", no.getText().toString());
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users")
+                .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .set(map, SetOptions.merge());
+
+    }*/
+
+
+
     private boolean validatePhoneNumber() {
         phoneNumber = findViewById(R.id.fieldPhoneNumber);
         if (TextUtils.isEmpty(phoneNumber.getText().toString())) {
@@ -304,15 +264,6 @@ public class PhoneAuthActivity extends AppCompatActivity {
         }
 
         return true;
-    }
-
-
-
-    private void verifyPhoneNumberWithCode(String mVerificationId, String code) {
-        // [START verify_with_code]
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
-        // [END verify_with_code]
-        signInWithPhoneAuthCredential(credential);
     }
 
 
@@ -334,35 +285,42 @@ public class PhoneAuthActivity extends AppCompatActivity {
     private void signOut() {
         mAuth.signOut();
     }
-    private void saveName_pwd() {
-        HashMap<String, Object> map = new HashMap<>();
-        TextView name= findViewById(R.id.fieldName);
-        TextView no= findViewById(R.id.fieldPhoneNumber);
-        map.put("Name", name.getText().toString());
-        map.put("number ", no.getText().toString());
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("users")
-                .document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .set(map, SetOptions.merge());
+    //ye
 
-    }
 
     //checking previous login or not, return true if record exists else return false
-    private boolean checkRegister(){
-        TextView phone=findViewById(R.id.fieldPhoneNumber);
-        final Boolean[] str = {false};
+    public void checkRegister() {
+        TextView phone = findViewById(R.id.fieldPhoneNumber);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("users")
-                .whereEqualTo("number", phone.getText().toString())
+                .whereEqualTo("number",phone.getText().toString())
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        str[0] =true;
-                        //Toast.makeText(PhoneAuthActivity.this, "Record Found", Toast.LENGTH_SHORT).show();
+                        Log.d(TAG, "onSucessListner");
+                        List<DocumentSnapshot> snapshotsList= queryDocumentSnapshots.getDocuments();
+                        Intent intent;
+                        if(!snapshotsList.isEmpty())
+                        {
+                            //Log.d(TAG, "inside if" + " No record found");
+                            Toast.makeText(PhoneAuthActivity.this, "Verified!.Loggin in", Toast.LENGTH_SHORT).show();
+                            intent= new Intent(PhoneAuthActivity.this,MainActivity.class);
+
+                        }
+                        else {
+                            Log.d(TAG, "inside else");
+                            Toast.makeText(PhoneAuthActivity.this, "Verified! Create your account", Toast.LENGTH_SHORT).show();
+                            intent= new Intent(PhoneAuthActivity.this, CreateAccount.class);
+                        }
+                        Pair[] pairs    = new Pair[1];
+                        intent.putExtra("Number", phone.getText().toString());
+                        pairs[0] = new Pair<View,String>(tvLogin,"tvLogin");
+                        ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(PhoneAuthActivity.this,pairs);
+                        startActivity(intent, activityOptions.toBundle());
                     }
                 });
-        return str[0];
+
     }
 
 }

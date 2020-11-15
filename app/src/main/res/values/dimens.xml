@@ -11,8 +11,11 @@
     <dimen name="imagebtn_height">125dp</dimen>
     <dimen name="imagebtn_width">180dp</dimen>
 
+
     <dimen name="title_bottom_margin">16dp</dimen>
     <dimen name="button_horizontal_margin">8dp</dimen>
     <dimen name="icon_top_margin">24dp</dimen>
     <dimen name="icon_bottom_margin">24dp</dimen>
+    <dimen name="activity_horizontal_margin">6dp</dimen>
+    <dimen name="activity_vertical_margin">6dp</dimen>
 </resources>

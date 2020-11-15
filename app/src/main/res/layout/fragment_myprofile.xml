@@ -8,18 +8,6 @@
     android:backgroundTint="#0E0D0D">
 
 
-    <TextView
-        android:id="@+id/text_email_verify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo"
-        android:text="Verify!"
-        android:textAllCaps="true"
-        android:textColor="#F6DF88"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editEmail"
-        app:layout_constraintTop_toTopOf="@+id/editEmail" />
 
     <ImageView
         android:id="@+id/image_user"
@@ -89,44 +77,31 @@
         android:id="@+id/editName1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="5"
+        android:ems="10"
+
         android:fontFamily="@font/baloo"
-        android:hint="First Name"
+        android:hint="Name"
         android:inputType="textPersonName"
         android:textColor="#FAF8F1"
         android:textColorHint="#ACABAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_describe"
         app:layout_constraintVertical_bias="0.051" />
 
 
-    <EditText
-        android:id="@+id/editName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:ems="5"
-        android:fontFamily="@font/baloo"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
-        android:textColor="#FAF8F1"
-        android:textColorHint="#ACABAA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toEndOf="@+id/editName1"
-        app:layout_constraintTop_toBottomOf="@+id/text_describe"
-        app:layout_constraintVertical_bias="0.049" />
 
     <EditText
         android:id="@+id/editPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableRight="@mipmap/ic_notverified"
+        android:drawableRight="@mipmap/ic_verified"
         android:ems="10"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
         android:fontFamily="@font/baloo"
         android:hint="Phone No."
         android:inputType="phone"
@@ -134,25 +109,11 @@
         android:textColorHint="#ACABAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editName2"
+        app:layout_constraintTop_toBottomOf="@+id/editName1"
         app:layout_constraintVertical_bias="0.054" />
 
-    <TextView
-        android:id="@+id/text_phone_verify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo"
-        android:text="Verify!"
-        android:textAllCaps="true"
-        android:clickable="true"
-        android:textColor="#F6DF88"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
-        app:layout_constraintStart_toEndOf="@+id/editPhone"
-        app:layout_constraintTop_toTopOf="@+id/editPhone" />
 
     <EditText
         android:id="@+id/editEmail"
@@ -160,13 +121,14 @@
         android:layout_height="wrap_content"
         android:drawableRight="@mipmap/ic_notverified"
         android:ems="10"
+        android:clickable="false"
         android:fontFamily="@font/baloo"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColorHint="#ACABAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPhone"
         app:layout_constraintVertical_bias="0.054" />

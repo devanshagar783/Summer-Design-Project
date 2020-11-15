@@ -5,12 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -25,7 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.sdp.remotehealthcareapp.R;
-import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 
 public class Signin extends AppCompatActivity {
@@ -51,7 +48,9 @@ public class Signin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /* //This is to hide the title bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        */
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.signin);
         sharedPreferences= getSharedPreferences(getString(R.string.preference_file_name_login), Context.MODE_PRIVATE);
@@ -76,7 +75,7 @@ public class Signin extends AppCompatActivity {
         findViewById(R.id.phone_login_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent phoneAuth = new Intent(getApplicationContext(), PhoneAuthActivity.class);
+                Intent phoneAuth = new Intent(getApplicationContext(), MyWebViewActivity.class);
                 startActivity(phoneAuth);
             }
         });

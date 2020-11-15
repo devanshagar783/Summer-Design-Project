@@ -1,18 +1,12 @@
 package com.sdp.remotehealthcareapp.Fragments;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,33 +15,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
-import com.sdp.remotehealthcareapp.Activities.PhoneAuthActivity;
-import com.sdp.remotehealthcareapp.Activities.signup;
 import com.sdp.remotehealthcareapp.R;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Text;
-
 import java.util.HashMap;
-import java.util.Objects;
-import java.util.concurrent.Executor;
 
 public class MyProfile extends Fragment {
     FirebaseUser fUser;
@@ -204,8 +180,6 @@ public class MyProfile extends Fragment {
         email= V.findViewById(R.id.editEmail);
         address= V.findViewById(R.id.editAddress);
         gender= V.findViewById(R.id.editGender);
-        verify_phone= V.findViewById(R.id.text_phone_verify);
-        verify_email=V.findViewById(R.id.text_email_verify);
         getName();
 
     }

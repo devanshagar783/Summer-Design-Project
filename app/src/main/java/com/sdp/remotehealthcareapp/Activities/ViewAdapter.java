@@ -45,7 +45,7 @@ public class ViewAdapter extends PagerAdapter {
             view.findViewById(R.id.tagbutton).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    context.startActivity(new Intent(context, Signin.class));
+                    context.startActivity(new Intent(context, PhoneAuthActivity.class));
                 }
             });
 

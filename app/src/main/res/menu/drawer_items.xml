@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/upcoming_app"
-        android:title="Upcoming Appoinntments"
+        android:id="@+id/book_appointment"
+        android:title="Book an Appointment"
+        android:icon="@drawable/ic_baseline_format_list_bulleted"/>
+    <item
+        android:id="@+id/recent"
+        android:title="Recent Appointments"
         android:icon="@drawable/ic_baseline_format_list_bulleted"/>
     <item
         android:id="@+id/dashboard"

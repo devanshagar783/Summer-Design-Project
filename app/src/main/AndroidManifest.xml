@@ -71,6 +71,9 @@
             android:name = ".Activities.Intro_Signin"
             android:label = "Sign In" />
         <activity
+            android:name = ".Activities.CalenderActivity"
+            android:label = "Calender" />
+        <activity
             android:name = ".Activities.Signin"
             android:label = "Sign In" />
         <activity
@@ -80,6 +83,9 @@
         <activity
             android:name = ".Activities.PhoneAuthActivity"
             android:label = "Phone Authentication">
+        </activity>
+        <activity android:name=".Activities.CreateAccount"
+            android:label="Create Account">
         </activity>
     </application>
 
