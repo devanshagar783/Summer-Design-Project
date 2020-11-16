@@ -53,6 +53,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1.0"
                 android:layout_marginStart="20dp"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
                 android:hint="Name"
                 />
             <Button
@@ -63,13 +65,8 @@
                 android:id="@+id/button_register"
 
                 android:layout_marginStart="@dimen/button_horizontal_margin"
-                android:layout_marginEnd="@dimen/button_horizontal_margin"
-                >
-
+                android:layout_marginEnd="@dimen/button_horizontal_margin">
             </Button>
-
-
-
         </LinearLayout>
 
 

@@ -33,9 +33,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.sdp.remotehealthcareapp.Fragments.Dashboard;
-import com.sdp.remotehealthcareapp.Fragments.HealthFiles;
-import com.sdp.remotehealthcareapp.Fragments.MyProfile;
+import com.sdp.remotehealthcareapp.Activities.Login.PhoneAuthActivity;
+import com.sdp.remotehealthcareapp.Fragments.Appointments.AppointmentFragment;
+import com.sdp.remotehealthcareapp.Fragments.HealthFiles.HealthFiles;
+import com.sdp.remotehealthcareapp.Fragments.HealthFiles.MyProfile;
+import com.sdp.remotehealthcareapp.Fragments.Home.Dashboard;
+import com.sdp.remotehealthcareapp.Fragments.RecentAppointment_Fragment;
 import com.sdp.remotehealthcareapp.R;
 
 
@@ -57,10 +60,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
         setContentView(R.layout.activity_main);
-
-
         getDrawer_started();
         getProfile();
     }
@@ -116,9 +117,11 @@ public class MainActivity extends AppCompatActivity {
                         //finish();
                         /*sharedPreferences= getSharedPreferences(getString(R.string.preference_file_name), MODE_PRIVATE);
                         sharedPreferences.edit().putBoolean("isLoggedin", false).apply();*/
-                        startActivity(new Intent(getApplicationContext(), Signin.class));
+                        startActivity(new Intent(getApplicationContext(), PhoneAuthActivity.class));
                         finish();
                     }
+                    else if(item.getItemId()== R.id.book_appointment)
+                        selectorFragment= new AppointmentFragment();
                     else if(item.getItemId() == R.id.profile){
                         selectorFragment = new MyProfile();
                     }
@@ -128,7 +131,11 @@ public class MainActivity extends AppCompatActivity {
                     else if(item.getItemId()== R.id.dashboard){
                         selectorFragment= new Dashboard();
                     }
-                    else if(item.getItemId() == R.id.about){
+                    else if(item.getItemId() == R.id.recent)
+                    {
+                        selectorFragment= new RecentAppointment_Fragment();
+                    }
+                   else if(item.getItemId() == R.id.about){
                         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
                                 .setTitle("About Hygeia")
                                 .setMessage("Build and published by \nAkshat Srivastava(201851013)\nDevansh Agarwal(201851038)\nUjjwal Shrivastava(201851136)\n"+"\nIf you want to hire us or\n"+"if you want to check our other works\n"+"Have a look at our website:")
