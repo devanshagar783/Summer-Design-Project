@@ -2,7 +2,6 @@
   <library name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.2.0@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f89764db82107d2b66d6e724077320b2/lifecycle-viewmodel-2.2.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5ffdaaf93578c285896f237c45f0d37/lifecycle-viewmodel-2.2.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c309c0aa1536ad6847cb943df13c3e93/lifecycle-viewmodel-2.2.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c309c0aa1536ad6847cb943df13c3e93/lifecycle-viewmodel-2.2.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c309c0aa1536ad6847cb943df13c3e93/lifecycle-viewmodel-2.2.0/AndroidManifest.xml" />

@@ -46,6 +46,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mRecView.setHasFixedSize(true);
         mRecView.setLayoutManager(new LinearLayoutManager(this));
         textView = (TextView) findViewById(R.id.noData);
+        textView.setVisibility(View.GONE);
 
         mProgressCircle = (ProgressBar) findViewById(R.id.progress_circle);
 
@@ -72,8 +73,9 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
                     mUploads.add(upload);
                     ++count;
                 }
-                if (count == 0)
+                if (count == 0){
                     textView.setVisibility(View.VISIBLE);
+                }
                 else
                     textView.setVisibility(View.GONE);
                 mImageAdapter.notifyDataSetChanged();
