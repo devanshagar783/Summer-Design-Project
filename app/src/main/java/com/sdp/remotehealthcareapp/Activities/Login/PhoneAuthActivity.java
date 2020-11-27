@@ -230,9 +230,15 @@ public class PhoneAuthActivity extends AppCompatActivity {
 
     private void verifyPhoneNumberWithCode(String mVerificationId, String code) {
         // [START verify_with_code]
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
-        // [END verify_with_code]
-        signInWithPhoneAuthCredential(credential);
+        try {
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
+            // [END verify_with_code]
+            signInWithPhoneAuthCredential(credential);
+        }
+        catch (IllegalArgumentException e) {
+            Toast.makeText(PhoneAuthActivity.this, " Enter the fields", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 
@@ -251,13 +257,18 @@ public class PhoneAuthActivity extends AppCompatActivity {
 
     private void resendVerificationCode(String phoneNumber,
                                         PhoneAuthProvider.ForceResendingToken token) {
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNumber,        // Phone number to verify
-                60,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                this,               // Activity (for callback binding)
-                mCallbacks,         // OnVerificationStateChangedCallbacks
-                token);             // ForceResendingToken from callbacks
+        try {
+            PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    phoneNumber,        // Phone number to verify
+                    60,                 // Timeout duration
+                    TimeUnit.SECONDS,   // Unit of timeout
+                    this,               // Activity (for callback binding)
+                    mCallbacks,         // OnVerificationStateChangedCallbacks
+                    token);             // ForceResendingToken from callbacks
+        } catch (IllegalArgumentException e) {
+            Toast.makeText(PhoneAuthActivity.this, " Enter the fields", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 
