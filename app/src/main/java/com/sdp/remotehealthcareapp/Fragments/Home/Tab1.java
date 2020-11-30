@@ -35,11 +35,11 @@ public class Tab1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_tab1, container, false);
-        button = (Button) v.findViewById(R.id.btnShow);
+        /*button = (Button) v.findViewById(R.id.btnShow);
         button.setOnClickListener(view -> {
             Intent intent = new Intent(getContext(), MapsActivity.class);
             startActivity(intent);
-        });
+        });*/
         return v;
     }
 }

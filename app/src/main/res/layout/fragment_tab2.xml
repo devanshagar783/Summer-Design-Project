@@ -3,15 +3,42 @@
     xmlns:tools = "http://schemas.android.com/tools"
     android:layout_width = "match_parent"
     android:layout_height = "match_parent"
-    tools:context = ".Fragments.Tab2"
+    tools:context = ".Fragments.Home.Tab2"
     >
     
-    <TextView
+    <ImageView
+        android:layout_width = "wrap_content"
+        android:layout_height = "393dp"
+        android:id="@+id/homeimg"
+        android:src="@drawable/homeimg"
+        android:layout_marginBottom="10dp"/>
+    
+    <Button
         android:layout_width = "wrap_content"
         android:layout_height = "wrap_content"
-        android:text="This is Tab 2"
-        android:layout_centerInParent="true"
-        android:textSize="26sp"
-        android:textStyle="bold"/>
+        android:text="Button 1"
+        android:id="@+id/homeb1"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/homeimg"/>
+    
+    <Button
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text="Button 2"
+        android:id="@+id/homen"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/homeimg"
+        android:layout_toRightOf="@id/homeb1"
+        android:visibility="invisible"/>
+    
+    <Button
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:text="Button 2"
+        android:id="@+id/homeb2"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/homeimg"
+        android:layout_toRightOf="@id/homen"/>
+    
 
 </RelativeLayout>

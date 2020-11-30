@@ -37,6 +37,7 @@ public class Dashboard extends Fragment {
         viewPager = (ViewPager) v.findViewById(R.id.main_tabs_pager);
         setupViewPager(viewPager);
         tabLayout = (TabLayout) v.findViewById(R.id.main_tab);
+        viewPager.setCurrentItem(1);
         tabLayout.setupWithViewPager(viewPager);
         return v;
     }
