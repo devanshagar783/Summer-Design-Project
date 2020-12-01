@@ -1,6 +1,8 @@
 package com.sdp.remotehealthcareapp.Fragments.Appointments;
 
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +11,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +34,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.sdp.remotehealthcareapp.Activities.GridViewAdapter;
+import com.sdp.remotehealthcareapp.Activities.MainActivity;
 import com.sdp.remotehealthcareapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -39,6 +44,8 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+
+import static com.sdp.remotehealthcareapp.Activities.Notifications.App.CHANNEL_1_ID;
 
 public class Bookdate_Fragment extends Fragment {
     String name, time;
@@ -53,6 +60,8 @@ public class Bookdate_Fragment extends Fragment {
     ImageView Photo;
     GridViewAdapter adapter;
     String Date;
+
+    private NotificationManagerCompat notificationManagerCompat;
 
 
     public Bookdate_Fragment()
@@ -84,6 +93,34 @@ public class Bookdate_Fragment extends Fragment {
                 selected_time= GridViewAdapter.time;
                // Toast.makeText(getActivity(), selected_time + mDisplayDate.getText().toString(), Toast.LENGTH_SHORT).show();
                 set_appointment();
+
+
+                //This is for notification
+                notificationManagerCompat = NotificationManagerCompat.from(getActivity().getApplicationContext());
+                String text = "Your Appointment is booked";
+                String mesg = "Display the date of appointment";
+
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                PendingIntent contentIntent = PendingIntent.getActivity(getContext(),
+                        0, intent, 0);
+
+                Notification notification = new NotificationCompat.Builder(getActivity().getApplicationContext(), CHANNEL_1_ID)
+                        .setSmallIcon(R.drawable.oneicon)//notification icon
+                        .setContentTitle(text)
+                        .setContentText(mesg)
+                        .setStyle(new NotificationCompat.BigTextStyle()//only shows around 250 characters
+                                .bigText("hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh ")
+                                .setBigContentTitle(text)
+                                .setSummaryText("Appointment Booking"))
+                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+                        .setCategory(NotificationCompat.CATEGORY_EVENT)
+                        .setColor(Color.GREEN)
+                        .setContentIntent(contentIntent)//what do open when clicked
+                        .setAutoCancel(true)//dismiss noti when clicked
+                        .setOnlyAlertOnce(true)//no sound when updated
+                        .build();
+                notificationManagerCompat.notify(1, notification);
+
             }
         });
         return v;

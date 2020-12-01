@@ -200,7 +200,7 @@ public class PhoneAuthActivity extends AppCompatActivity {
         // [END start_phone_auth]
 
         mVerificationInProgress = true;
-        auth.setLanguageCode("fr");
+        auth.setLanguageCode("en");
 
     }
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {

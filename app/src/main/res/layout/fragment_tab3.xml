@@ -1,17 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
     xmlns:tools = "http://schemas.android.com/tools"
     android:layout_width = "match_parent"
     android:layout_height = "match_parent"
-    tools:context = ".Fragments.Tab3"
+    android:orientation="vertical"
     >
     
-    <TextView
-        android:layout_width = "wrap_content"
+    <RelativeLayout
+        android:id = "@+id/imagere"
+        android:layout_width = "match_parent"
+        android:layout_height = "400dp"
+        >
+        
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id = "@+id/userimage"
+            android:layout_width = "300dp"
+            android:layout_height = "300dp"
+            android:layout_centerHorizontal = "true"
+            android:layout_marginTop = "20dp"
+            android:src = "@drawable/tonyimg"
+            app:civ_border_color = "#000000"
+            app:civ_border_width = "4dp"
+            app:civ_shadow = "true"
+            app:civ_shadow_color = "#000000"
+            app:civ_shadow_radius = "10dp"
+            />
+        
+        <TextView
+            android:id = "@+id/username"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_below = "@+id/userimage"
+            android:layout_centerHorizontal = "true"
+            android:layout_marginTop = "30dp"
+            android:text = "Your Name"
+            android:textSize = "23sp"
+            android:textStyle = "bold"
+            />
+    
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id = "@+id/detailsre"
+        android:layout_margin="15dp"
+        android:layout_width = "match_parent"
         android:layout_height = "wrap_content"
-        android:text="This is Tab 3"
-        android:layout_centerInParent="true"
-        android:textSize="26sp"
-        android:textStyle="bold"/>
+        android:layout_below="@+id/imagere">
+        
+        <TextView
+            android:id = "@+id/useremail"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:text = "username@example.com"
+            android:layout_marginBottom="10dp"
+            android:textSize = "20sp"
+            />
+        
+        <TextView
+            android:id = "@+id/usernum"
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_below = "@+id/useremail"
+            android:text = "+919999999999"
+            android:textSize = "20sp"
+            />
+    
+    </RelativeLayout>
+    
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width = "200dp"
+        android:layout_height = "200dp"
+        android:id="@+id/fabedit"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/edit"
+        />
 
 </RelativeLayout>

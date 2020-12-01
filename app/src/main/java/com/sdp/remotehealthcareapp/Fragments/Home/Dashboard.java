@@ -78,11 +78,11 @@ public class Dashboard extends Fragment {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Tab1";
+                    return "Consult";
                 case 1:
-                    return "Tab2";
+                    return "Home";
                 case 2:
-                    return "Tab3";
+                    return "Profile";
                 default:
                     return null;
                 // return null to display only the icon
