@@ -54,7 +54,7 @@ import static com.sdp.remotehealthcareapp.Activities.Notifications.App.CHANNEL_1
 
 public class Bookdate_Fragment extends Fragment {
 
-    String name, time, selected_time,photo,visits,day;
+    String name, time, selected_time, photo, visits, day;
     View v;
     private TextView mDisplayDate, Name;
     RecyclerView dataList;
@@ -62,7 +62,7 @@ public class Bookdate_Fragment extends Fragment {
     ImageView Photo;
     GridViewAdapter adapter;
     Spinner spinner;
-    String[] days = new String[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+    String[] days = new String[]{"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     AlertDialog alertDialog;
     AlertDialog.Builder dialogBuilder;
     private static final String TAG = "Bookdate_Fragment";
@@ -70,15 +70,15 @@ public class Bookdate_Fragment extends Fragment {
     private NotificationManagerCompat notificationManagerCompat;
 
 
-    public Bookdate_Fragment()
-    {
+    public Bookdate_Fragment() {
 
     }
+
     public Bookdate_Fragment(Dataclass_Doctors model) {
-        this.name=model.getName();
-        this.time= model.getTime();
-        this.photo=model.getPhotoURL();
-        this.visits=model.getVisits();
+        this.name = model.getName();
+        this.time = model.getTime();
+        this.photo = model.getPhotoURL();
+        this.visits = model.getVisits();
         Log.d(TAG, "Bookdate_Fragment(Constructor)");
 
     }
@@ -88,19 +88,19 @@ public class Bookdate_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         v=inflater.inflate(R.layout.fragment_bookdate_, container, false);
+        v = inflater.inflate(R.layout.fragment_bookdate_, container, false);
         setSpinner(v);
         setCalender(v);
         //setTime(v);
-         Name= v.findViewById(R.id.booked_name);
-         Name.setText(name);
-         Photo= v.findViewById(R.id.booked_image);
-         Picasso.get().load(photo).error(R.drawable.ic_launcher_background).into(Photo);
+        Name = v.findViewById(R.id.booked_name);
+        Name.setText(name);
+        Photo = v.findViewById(R.id.booked_image);
+        Picasso.get().load(photo).error(R.drawable.ic_launcher_background).into(Photo);
 
         v.findViewById(R.id.button_confirm).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selected_time= GridViewAdapter.time;
+                selected_time = GridViewAdapter.time;
                 // Toast.makeText(getActivity(), selected_time + mDisplayDate.getText().toString(), Toast.LENGTH_SHORT).show();
                 set_appointment();
                 popupwindow();
@@ -109,7 +109,6 @@ public class Bookdate_Fragment extends Fragment {
                 //This is for notification
                 notificationManagerCompat = NotificationManagerCompat.from(getActivity().getApplicationContext());
                 String text = "Your Appointment is booked";
-                String mesg = "Display the date of appointment";
 
                 Intent intent = new Intent(getContext(), MainActivity.class);
                 PendingIntent contentIntent = PendingIntent.getActivity(getContext(),
@@ -117,12 +116,12 @@ public class Bookdate_Fragment extends Fragment {
 
                 Notification notification = new NotificationCompat.Builder(getActivity().getApplicationContext(), CHANNEL_1_ID)
                         .setSmallIcon(R.drawable.oneicon)//notification icon
-                        .setContentTitle(text)
-                        .setContentText(mesg)
-                        .setStyle(new NotificationCompat.BigTextStyle()//only shows around 250 characters
-                                .bigText("hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh hello wordsnisag   ugfius kuffds hslbdfdsh oi xsuig dhi ghiuhdoihoig ui ghsoih oif oi hksdmil heyoi    + 5+  u vgut sei ges8sog i hgo dhslik fh osu hgotz olhkjhoiyha oih nisud fgdsiuk beilugsvhjmgikuh geiugsdigzhigo8yhoig hoi hoi hoihoighiughi hlo oi.l gjhurxxdol8 yeo i o i uoeyseoi yhoihio lghpoh oirh ")
-                                .setBigContentTitle(text)
-                                .setSummaryText("Appointment Booking"))
+                        .setContentTitle(text + " with " + name)
+                        .setContentText("Date : " + mDisplayDate.getText().toString())
+                        .setStyle(new NotificationCompat.InboxStyle()
+                                .addLine("Date : " + mDisplayDate.getText().toString())
+                                .addLine("Time : " + GridViewAdapter.time)
+                                .addLine(spinner.getSelectedItem().toString()))
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
                         .setCategory(NotificationCompat.CATEGORY_EVENT)
                         .setColor(Color.GREEN)
@@ -131,14 +130,12 @@ public class Bookdate_Fragment extends Fragment {
                         .setOnlyAlertOnce(true)//no sound when updated
                         .build();
                 notificationManagerCompat.notify(1, notification);
-
             }
         });
         return v;
-
     }
-    public void setTime(View v, String day_current)
-    {
+
+    public void setTime(View v, String day_current) {
         Log.d(TAG, "setTime");
         dataList = v.findViewById(R.id.recyclerview_booked);
         //array_title.clear();
@@ -146,20 +143,15 @@ public class Bookdate_Fragment extends Fragment {
         /*
         titles = new ArrayList<>();
         titles=Arrays.asList(time.split(","));*/
-        if(!array_title.isEmpty())
-        {
-            adapter = new GridViewAdapter(getContext(),array_title);
-            GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),3,GridLayoutManager.VERTICAL,false);
+        if (!array_title.isEmpty()) {
+            adapter = new GridViewAdapter(getContext(), array_title);
+            GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3, GridLayoutManager.VERTICAL, false);
             dataList.setLayoutManager(gridLayoutManager);
             dataList.setAdapter(adapter);
-        }
-        else
-        {
+        } else {
             Toast.makeText(getActivity(), "Empty", Toast.LENGTH_SHORT).show();
         }
-
     }
-
 
     public void setCalender(View v) {
         Log.d(TAG, "setCalender");
@@ -171,10 +163,10 @@ public class Bookdate_Fragment extends Fragment {
             public void onClick(View view) {
                 AlertDialog alertDialog;
                 AlertDialog.Builder dialogBuilder;
-                dialogBuilder= new AlertDialog.Builder(getActivity());
+                dialogBuilder = new AlertDialog.Builder(getActivity());
                 final View contactPopupView = getLayoutInflater().inflate(R.layout.item_calender, null);
                 dialogBuilder.setView(contactPopupView);
-                alertDialog= dialogBuilder.create();
+                alertDialog = dialogBuilder.create();
                 alertDialog.show();
 
                 CalendarView calendar = contactPopupView.findViewById(R.id.calender);
@@ -184,24 +176,25 @@ public class Bookdate_Fragment extends Fragment {
                         String Date = dayOfMonth + "-" + (month + 1) + "-" + year;
                         mDisplayDate.setText(Date);
                         Calendar calendar = Calendar.getInstance();
-                        calendar.set(year,month,dayOfMonth);
+                        calendar.set(year, month, dayOfMonth);
 
-                        day = days[calendar.get(calendar.DAY_OF_WEEK)-1];
+                        day = days[calendar.get(calendar.DAY_OF_WEEK) - 1];
 
                         //Toast.makeText(getActivity(), day,Toast.LENGTH_SHORT).show();
-                        setTime(v,day);
+                        setTime(v, day);
                     }
                 });
             }
         });
     }
-    public void set_appointment(){
+
+    public void set_appointment() {
         Log.d(TAG, "set_appointment");
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("time", GridViewAdapter.time);
         map.put("date", mDisplayDate.getText().toString());
-        map.put("dr",name);
+        map.put("dr", name);
         map.put("patient", MainActivity.getName());
         map.put("photo", photo);
         map.put("clinic", spinner.getSelectedItem().toString());
@@ -215,7 +208,7 @@ public class Bookdate_Fragment extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful())
+                        if (task.isSuccessful())
                             Toast.makeText(getContext(), "Appointment done", Toast.LENGTH_SHORT).show();
                         else
                             Toast.makeText(getContext(), "Error in appointment", Toast.LENGTH_SHORT).show();
@@ -228,8 +221,8 @@ public class Bookdate_Fragment extends Fragment {
                 .set(map, SetOptions.merge());
 
     }
-    public void setSpinner(View v)
-    {
+
+    public void setSpinner(View v) {
         Log.d(TAG, "setSpinner");
         spinner = v.findViewById(R.id.spinner_clinic);
 
@@ -260,6 +253,7 @@ public class Bookdate_Fragment extends Fragment {
 
         spinner.setPrompt("Clinics");
     }
+
     public void getTime(String current_day) {
         Log.d(TAG, "getTime");
 
@@ -279,9 +273,7 @@ public class Bookdate_Fragment extends Fragment {
                                 array_title.clear();
                                 List<String> names = Arrays.asList(time.split(","));
                                 array_title.addAll(names);
-                            }
-                            catch (NullPointerException e)
-                            {
+                            } catch (NullPointerException e) {
                                 dataList.setAdapter(null);
                                 Toast.makeText(getActivity(), "Doctor is not scheduled, select another date", Toast.LENGTH_SHORT).show();
                             }
@@ -299,20 +291,20 @@ public class Bookdate_Fragment extends Fragment {
                 .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                List<DocumentSnapshot> snapshotList= queryDocumentSnapshots.getDocuments();
-                for(DocumentSnapshot snapshot:snapshotList)
-                {
-                    String time= snapshot.getString("time").toString();
+                List<DocumentSnapshot> snapshotList = queryDocumentSnapshots.getDocuments();
+                for (DocumentSnapshot snapshot : snapshotList) {
+                    String time = snapshot.getString("time").toString();
                     array_title.remove(time);
                 }
             }
         });
     }
-    private void popupwindow(){
-        dialogBuilder= new AlertDialog.Builder(getActivity());
+
+    private void popupwindow() {
+        dialogBuilder = new AlertDialog.Builder(getActivity());
         final View contactPopupView = getLayoutInflater().inflate(R.layout.confirm_bookedapp, null);
         dialogBuilder.setView(contactPopupView);
-        alertDialog= dialogBuilder.create();
+        alertDialog = dialogBuilder.create();
         alertDialog.show();
 
         init(contactPopupView);
@@ -324,18 +316,19 @@ public class Bookdate_Fragment extends Fragment {
             }
         });*/
     }
-    private void init(View v){
-        ImageView doc_photo= v.findViewById(R.id.confirm_booked_image);
-        TextView doc_name= v.findViewById(R.id.confirm_booked_name);
-        TextView patient= v.findViewById(R.id.confirm_booked_patient_name);
-        TextView time= v.findViewById(R.id.confirm_booked_time);
-        TextView clinic= v.findViewById(R.id.confirm_booked_clinic);
+
+    private void init(View v) {
+        ImageView doc_photo = v.findViewById(R.id.confirm_booked_image);
+        TextView doc_name = v.findViewById(R.id.confirm_booked_name);
+        TextView patient = v.findViewById(R.id.confirm_booked_patient_name);
+        TextView time = v.findViewById(R.id.confirm_booked_time);
+        TextView clinic = v.findViewById(R.id.confirm_booked_clinic);
 
         Picasso.get().load(photo).error(R.drawable.ic_launcher_background).into(doc_photo);
         doc_name.setText(name);
         patient.setText(MainActivity.getName());
         clinic.setText(spinner.getSelectedItem().toString());
-        time.setText(GridViewAdapter.time + " "+ mDisplayDate.getText().toString());
+        time.setText(GridViewAdapter.time + " " + mDisplayDate.getText().toString());
     }
 
 }
