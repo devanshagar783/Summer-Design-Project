@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    tools:context = ".Fragments.Home.DoctorFragment"
+    android:orientation="vertical"
+    android:layout_margin="15dp"
+    >
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc1"
+        android:text="Doctor"/>
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc2"
+        android:text="Doctor"/>
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc3"
+        android:text="Doctor"/>
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc4"
+        android:text="Doctor"/>
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc5"
+        android:text="Doctor"/>
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc6"
+        android:text="Doctor"/>
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc7"
+        android:text="Doctor"/>
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc8"
+        android:text="Doctor"/>
+    
+    <Button
+        android:layout_width = "match_parent"
+        android:layout_height = "wrap_content"
+        android:id="@+id/doc9"
+        android:text="Doctor"/>
+
+</LinearLayout>
