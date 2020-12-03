@@ -40,5 +40,12 @@
         android:layout_below="@+id/homeimg"
         android:layout_toRightOf="@id/homen"/>
     
-
+    <Button
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:id="@+id/btn_sos"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/homeimg"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/sos"/>
 </RelativeLayout>
