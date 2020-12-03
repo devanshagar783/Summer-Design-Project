@@ -97,10 +97,10 @@ public class Tab2 extends Fragment {
         btn_sos.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 emergencyContacts = new ArrayList<>();
-                emergencyContacts.add("+917018903955");
-                emergencyContacts.add("+917018901543");
-                emergencyContacts.add("+919335183296");
-                emergencyContacts.add("+918795641407");
+                emergencyContacts.add("+919205710631");
+//                emergencyContacts.add("");
+//                emergencyContacts.add("");
+//                emergencyContacts.add("");
                 if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
