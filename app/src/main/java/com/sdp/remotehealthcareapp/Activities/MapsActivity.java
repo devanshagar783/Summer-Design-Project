@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -33,6 +34,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.sdp.remotehealthcareapp.Fragments.Appointments.Bookdate_Fragment;
 import com.sdp.remotehealthcareapp.R;
 
 import java.time.LocalTime;
@@ -55,6 +57,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Marker newMarker;
 
     String docName;
+    String lati;
+    String longi;
     String st = "";
     String et = "";
     LatLng location;
@@ -113,24 +117,48 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-        Bundle bundle = getIntent().getExtras();
-        docName = bundle.getString("Name");
-
         mMap = googleMap;
 
-        if (previousMarker != null) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(previousMarker.getPosition().latitude, previousMarker.getPosition().longitude), 10));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-        }
+        Bundle bundle = getIntent().getExtras();
 
-
-        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-        ) {
+        lati = bundle.getString("Latitude");
+        longi = bundle.getString("Longitude");
+        String clinicN = bundle.getString("Clinic");
+        if (lati != null) {
             ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 0);
-        } else {
-            mMap.setMyLocationEnabled(true);
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+            } else {
+                mMap.setMyLocationEnabled(true);
+            }
+            mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(Double.parseDouble(lati), Double.parseDouble(longi)))
+                    .title(clinicN)
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+            );
+
+            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(Double.parseDouble(lati), Double.parseDouble(longi)), 16);
+            mMap.animateCamera(cameraUpdate);
         }
+
+        docName = bundle.getString("Name");
+        if (docName != null) {
+
+            if (previousMarker != null) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(previousMarker.getPosition().latitude, previousMarker.getPosition().longitude), 10));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+            }
+
+
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+            } else {
+                mMap.setMyLocationEnabled(true);
+            }
 //        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
 //            @Override
 //            public void onMapLongClick(LatLng latLng) {
@@ -141,68 +169,64 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        });
 
 
-        LocalTime localTime = LocalTime.now(); //current time
-        Calendar calendar = Calendar.getInstance();
-        int dayint = calendar.get(Calendar.DAY_OF_WEEK); //todays day
-        switch (dayint) {
-            case 1:
-                day = "Sunday";
-                break;
-            case 2:
-                day = "Monday";
-                break;
-            case 3:
-                day = "Tuesday";
-                break;
-            case 4:
-                day = "Wednesday";
-                break;
-            case 5:
-                day = "Thursday";
-                break;
-            case 6:
-                day = "Friday";
-                break;
-            case 7:
-                day = "Saturday";
-                break;
-        }
-        FirebaseFirestore.getInstance()
-                .collection("users")
-                .document("Doctors")
-                .collection("Names")
-                .document(docName)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot doc = task.getResult();
-                            assert doc != null;
-                            String clinics = doc.getString("Visits");
-                            Log.d(TAG, "onMapComplete: " + clinics);
-
-                            try {
-                                Log.d(TAG, "onMapComplete: regex vala");
-                                array_title = Arrays.asList(clinics.split(","));
-                                Log.d(TAG, "onMapComplete: " + array_title.size());
-
-                            } catch (NullPointerException e) {
-                                Log.d(TAG, "onMapComplete: catch vala");
-                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                            Log.d(TAG, "onMapComplete: last print");
-                            getMarkers(day, localTime);
-                        }
-                    }
-                });
-
-        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                Toast.makeText(MapsActivity.this, "Now move to book appointments activity", Toast.LENGTH_SHORT).show();
+            LocalTime localTime = LocalTime.now(); //current time
+            Calendar calendar = Calendar.getInstance();
+            int dayint = calendar.get(Calendar.DAY_OF_WEEK); //todays day
+            switch (dayint) {
+                case 1:
+                    day = "Sunday";
+                    break;
+                case 2:
+                    day = "Monday";
+                    break;
+                case 3:
+                    day = "Tuesday";
+                    break;
+                case 4:
+                    day = "Wednesday";
+                    break;
+                case 5:
+                    day = "Thursday";
+                    break;
+                case 6:
+                    day = "Friday";
+                    break;
+                case 7:
+                    day = "Saturday";
+                    break;
             }
-        });
+            FirebaseFirestore.getInstance()
+                    .collection("users")
+                    .document("Doctors")
+                    .collection("Names")
+                    .document(docName)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot doc = task.getResult();
+                                assert doc != null;
+                                String clinics = doc.getString("Visits");
+                                try {
+                                    array_title = Arrays.asList(clinics.split(","));
+
+                                } catch (NullPointerException e) {
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                                getMarkers(day, localTime);
+                            }
+                        }
+                    });
+
+            mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Bookdate_Fragment()).addToBackStack("Maps").commit();
+                    Toast.makeText(MapsActivity.this, "Now move to book appointments activity", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     public void getMarkers(String day, LocalTime localTime) {
@@ -259,7 +283,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                                             .snippet(docName)
                                     );
-                                    Log.d(TAG, "onComplete: map marker g " + clinicName);
                                 }
                                 if (localTime.isBefore(LocalTime.parse(st)) && localTime.isBefore(LocalTime.parse(et))) {
                                     mMap.addMarker(new MarkerOptions()
@@ -268,7 +291,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW))
                                             .snippet(docName)
                                     );
-                                    Log.d(TAG, "onComplete: map marker y " + clinicName);
                                 }
                                 if (localTime.isAfter(LocalTime.parse(st)) && localTime.isAfter(LocalTime.parse(et))) {
                                     mMap.addMarker(new MarkerOptions()
@@ -277,13 +299,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
                                             .snippet(docName)
                                     );
-                                    Log.d(TAG, "onComplete: map marker r " + clinicName);
                                 }
-                            } catch (NullPointerException e) {
-                                Toast.makeText(MapsActivity.this, "Doctor is not coming", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
-                                Toast.makeText(MapsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                Log.d(TAG, "onComplete: " + e);
+                                Toast.makeText(MapsActivity.this, "No doctor", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(MapsActivity.this, "Not available", Toast.LENGTH_SHORT).show();
