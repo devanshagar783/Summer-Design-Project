@@ -8,6 +8,8 @@
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="80dp"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     >
     <ImageView
         android:id="@+id/cat_Image"
@@ -25,6 +27,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/baloo"
         android:text="Surgeon"
+        android:textColor="#0C0C0C"
         android:textSize="23sp" />
 
 </androidx.cardview.widget.CardView>

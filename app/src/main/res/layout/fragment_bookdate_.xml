@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,25 +9,49 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:backgroundTint="#40c4ff"
+        android:id="@+id/cardview"
         >
         <com.mikhaellopez.circularimageview.CircularImageView
             android:layout_width="170dp"
             android:layout_height="170dp"
-            android:layout_marginTop="15dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
             android:src="@drawable/surgeon_image"
             android:id="@+id/booked_image" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name of doctor"
-
             android:fontFamily="@font/boogaloo"
             android:textSize="20sp"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="25dp"
             android:layout_marginTop="175dp"
             android:id="@+id/booked_name"
             />
+
+        <Spinner
+            android:id="@+id/spinner_clinic"
+            android:layout_width="218dp"
+            android:layout_height="41dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="170dp"
+            android:backgroundTint="#090909"
+            android:spinnerMode="dialog">
+
+        </Spinner>
+
+        <TextView
+            android:id="@+id/booked_clinic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="190dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/boogaloo"
+            android:text="Select Clinic:"
+            android:textAllCaps="true"
+            android:textColor="#393737"
+            android:textSize="25sp" />
+
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -74,7 +99,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_booked"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/time"
         android:layout_marginLeft="10sp"
         android:layout_marginTop="10dp"
@@ -90,6 +115,7 @@
         android:id="@+id/button_confirm"
         android:background="@drawable/btn_rounded"
         android:text="Confirm" />
+
 
 
 </RelativeLayout>

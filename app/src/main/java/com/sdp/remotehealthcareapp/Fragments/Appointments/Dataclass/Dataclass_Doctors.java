@@ -7,17 +7,21 @@ public class Dataclass_Doctors {
     String Speaks;
     String Experience;
     String Time;
+    String Visits;
     Dataclass_Doctors()
     {
 
     }
-    Dataclass_Doctors(String Name, String Category, String photoURL, String Speaks, String Experience){
+    Dataclass_Doctors(String Name, String Category, String photoURL, String Speaks, String Experience, String Visits){
         this.Name= Name;
         this.Category=Category;
         this.photoURL= photoURL;
         this.Experience= Experience;
         this.Speaks= Speaks;
+        this.Visits= Visits;
     }
+
+    public String getVisits() { return Visits; }
 
     public String getName() {
         return Name;
