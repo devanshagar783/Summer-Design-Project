@@ -61,7 +61,7 @@ public class Tab2 extends Fragment {
 
 
 
-        //Bug fix attempt
+        //Bug fix attempt start -> working
         if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
@@ -90,7 +90,7 @@ public class Tab2 extends Fragment {
                         e.printStackTrace();
                     }
                 });
-        // bug fix attempt end
+        // bug fix attempt end -> working
 
 
 
@@ -114,13 +114,10 @@ public class Tab2 extends Fragment {
                             // Got last known location. In some rare situations this can be null.
                             Log.d(TAG, "onSuccess: " + location.getLatitude());
                             Log.d(TAG, "onSuccess: " + location.getLongitude());
-                            //                                if (location != null) {
-                            //                                    // Logic to handle location object
-                            //                                    latitude = location.getLatitude();
-                            //                                    longitude = location.getLongitude();
-                            //                                }
-                            latitude = location.getLatitude();
-                            longitude = location.getLongitude();
+                            if (location != null) {
+                                latitude = location.getLatitude();
+                                longitude = location.getLongitude();
+                            }
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -138,7 +135,7 @@ public class Tab2 extends Fragment {
                         smsManager.sendTextMessage(phoneNo, null, message, null, null);
                         Toast.makeText(getActivity().getApplicationContext(), "Message Sent", Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
-                        Toast.makeText(getActivity().getApplicationContext(), "Some error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "No medical emergency contacts are listed", Toast.LENGTH_LONG).show();
                     }
                 }
             }

@@ -19,7 +19,8 @@
         android:text="Button 1"
         android:id="@+id/homeb1"
         android:layout_margin="20dp"
-        android:layout_below="@+id/homeimg"/>
+        android:layout_below="@+id/homeimg"
+        android:visibility="invisible"/>
     
     <Button
         android:layout_width = "wrap_content"
@@ -38,7 +39,8 @@
         android:id="@+id/homeb2"
         android:layout_margin="20dp"
         android:layout_below="@+id/homeimg"
-        android:layout_toRightOf="@id/homen"/>
+        android:layout_toRightOf="@id/homen"
+        android:visibility="invisible"/>
     
     <Button
         android:layout_width="90dp"
