@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="35dp"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:backgroundTint="#e6ee9c"
+        android:id="@+id/header_1"
+        >
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/booked_image"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-25dp"
+            android:src="@drawable/surgeon_image" />
+
+        <TextView
+            android:id="@+id/booked_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="75dp"
+            android:fontFamily="@font/boogaloo"
+            android:text="Name of doctor"
+            android:textColor="#1C1A1A"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#66bb6a"
+        android:layout_marginTop="100dp"
+        >
+
+        <TextView
+            android:id="@+id/booked_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="5:30 PM"
+            android:textSize="75sp" />
+
+        <Button
+            android:id="@+id/booked_app_map"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="50sp"
+            android:backgroundTint="#66bb6a"
+            android:drawableLeft="@mipmap/ic_navigate"
+            android:fontFamily="@font/baloo"
+            android:text="Navigate"
+            android:textColor="#AE3A32"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/booked_patient_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="Patient"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/booked_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="right"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="Clinic"
+            android:textSize="30sp" />
+        <TextView
+            android:id="@+id/booked_clinic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
+            android:layout_gravity="right"
+            android:fontFamily="@font/ubuntu_light"
+            android:text="Date"
+            android:textSize="30sp" />
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

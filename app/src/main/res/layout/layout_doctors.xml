@@ -8,7 +8,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF">
 
         <ImageView
             android:id="@+id/doc_Image"
@@ -55,7 +57,7 @@
             android:id="@+id/button_consult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
+            android:layout_gravity="right"
             android:layout_marginTop="120dp"
             android:background="@drawable/btn_rounded"
             android:clickable="true"

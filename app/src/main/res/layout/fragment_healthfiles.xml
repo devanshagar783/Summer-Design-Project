@@ -112,7 +112,7 @@
         android:fontFamily="@font/baloo"
         android:text=""
         android:textAllCaps="true"
-        android:textColor="#F1EAEA"
+        android:textColor="#FDF7F7"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/text_healthfiles"

@@ -56,7 +56,7 @@
 
     <TextView
         android:id="@+id/text_describe"
-        android:layout_width="391dp"
+        android:layout_width="match_parent"
         android:layout_height="96dp"
         android:layout_marginTop="20dp"
         android:background="#CCC7A2"
@@ -64,6 +64,7 @@
         android:fontFamily="@font/baloo"
         android:text="Add information about your lifestyle, and procedures. This informton will help doctor to make better assestment of your illness and suggest the right medication"
         android:textAlignment="center"
+        android:textColor="#0E0E0E"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,6 +82,7 @@
         android:fontFamily="@font/baloo"
         android:text="Smoke and Alchol?"
         android:textAlignment="center"
+        android:textColor="#0C0C0C"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +90,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_describe" />
     />
+
     <TextView
         android:id="@+id/text_q2"
         android:layout_width="wrap_content"
@@ -98,6 +101,7 @@
         android:fontFamily="@font/baloo"
         android:text="Allergies?"
         android:textAlignment="center"
+        android:textColor="#0C0C0C"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,6 +120,7 @@
         android:fontFamily="@font/baloo"
         android:text="Medication and other illness?"
         android:textAlignment="center"
+        android:textColor="#0B0A0A"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,6 +139,7 @@
         android:fontFamily="@font/baloo"
         android:text="Others?"
         android:textAlignment="center"
+        android:textColor="#151515"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,41 +153,48 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5sp"
         android:ems="18"
-        android:inputType="textPersonName"
         android:hint="Yes, if both."
+        android:inputType="textPersonName"
+        android:textColor="#0B0A0A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_q1" />
+
     <EditText
         android:id="@+id/edittext_a2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5sp"
         android:ems="18"
-        android:inputType="textPersonName"
         android:hint="Describe your previous or current allegies"
+        android:inputType="textPersonName"
+        android:textColor="#100F0F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_q2" />
+
     <EditText
         android:id="@+id/edittext_a3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5sp"
         android:ems="18"
-        android:inputType="textPersonName"
         android:hint="Describe your previous or current illness"
+        android:inputType="textPersonName"
+        android:textColor="#100F0F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_q3" />
+
     <EditText
         android:id="@+id/edittext_a4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5sp"
         android:ems="18"
-        android:inputType="textPersonName"
         android:hint="If, any other please specify"
+        android:inputType="textPersonName"
+        android:textColor="#100F0F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_q4" />
@@ -192,6 +205,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#F6DF88"
         android:text="Save details"
+        android:textColor="#0C0C0C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittext_a4"

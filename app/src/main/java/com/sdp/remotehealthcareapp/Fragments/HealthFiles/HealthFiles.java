@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.sdp.remotehealthcareapp.Activities.MainActivity;
 import com.sdp.remotehealthcareapp.Activities.ReportFiles.AttachmentReportActivity;
 import com.sdp.remotehealthcareapp.R;
 
@@ -74,7 +75,7 @@ public class HealthFiles extends Fragment {
 
     private void init() {
         userName = V.findViewById(R.id.text_user);
-        userName.setText(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getDisplayName());
+        userName.setText(Objects.requireNonNull(MainActivity.getName()));
         prescriptions = V.findViewById(R.id.button_prescriptions);
         medical = V.findViewById(R.id.button_medical);
         at_repo = V.findViewById(R.id.button_at_repo);

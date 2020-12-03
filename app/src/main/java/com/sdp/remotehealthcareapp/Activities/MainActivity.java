@@ -18,10 +18,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 
@@ -38,7 +36,7 @@ import com.sdp.remotehealthcareapp.Fragments.Appointments.AppointmentFragment;
 import com.sdp.remotehealthcareapp.Fragments.HealthFiles.HealthFiles;
 import com.sdp.remotehealthcareapp.Fragments.HealthFiles.MyProfile;
 import com.sdp.remotehealthcareapp.Fragments.Home.Dashboard;
-import com.sdp.remotehealthcareapp.Fragments.RecentAppointment_Fragment;
+import com.sdp.remotehealthcareapp.Fragments.Appointments.RecentAppointment_Fragment;
 import com.sdp.remotehealthcareapp.R;
 
 
@@ -55,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private SharedPreferences sharedPreferences;
+    static TextView navUsername;
 
 
     @Override
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         if(user !=null) {
             NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
             View headerView = navigationView.getHeaderView(0);
-            TextView navUsername = (TextView) headerView.findViewById(R.id.user_name);
+            navUsername = (TextView) headerView.findViewById(R.id.user_name);
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
             db.collection("users")
@@ -91,7 +90,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    public static String getName()
+    {
+        return navUsername.getText().toString();
+    }
     private void getDrawer_started()
     {
 

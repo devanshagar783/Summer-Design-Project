@@ -2,6 +2,7 @@ package com.sdp.remotehealthcareapp.Activities;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,16 +61,16 @@ public class GridViewAdapter extends RecyclerView.Adapter<GridViewAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.text_time);
-            cons = itemView.findViewById(R.id.cons);
+            //cons = itemView.findViewById(R.id.cons);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), titles.get(getAdapterPosition()), Toast.LENGTH_SHORT).show();
                     setTime(titles.get(getAdapterPosition()));
                     prev = curr;
-                    curr = (ConstraintLayout) itemView;
-                    int color_normal = ContextCompat.getColor(itemView.getContext(), R.color.White);
-                    int color_selected = ContextCompat.getColor(itemView.getContext(), R.color.colorPrimary);
+                    curr =  (ConstraintLayout) itemView;
+                    int color_normal = ContextCompat.getColor(itemView.getContext(), R.color.Black);
+                    int color_selected = ContextCompat.getColor(itemView.getContext(), R.color.colorBlue);
                     if (prev != null)
                         prev.setBackgroundColor(color_normal);
                     curr.setBackgroundColor(color_selected);
