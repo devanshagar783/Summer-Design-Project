@@ -11,7 +11,7 @@
         name="Splash"
         parent="Theme.AppCompat.Light.DarkActionBar">
         <item
-            name="android:windowBackground">@drawable/splash_1
+            name="android:windowBackground">@drawable/splash_screen
         </item>
     </style>
 

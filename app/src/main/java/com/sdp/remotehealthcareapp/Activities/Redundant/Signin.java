@@ -1,4 +1,4 @@
-package com.sdp.remotehealthcareapp.Activities.Rebundant;
+package com.sdp.remotehealthcareapp.Activities.Redundant;
 
 import android.content.Context;
 import android.content.Intent;

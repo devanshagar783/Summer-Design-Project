@@ -48,10 +48,10 @@
             android:name = ".Activities.ReportFiles.ImagesActivity"
             android:label = "Previous Prescriptions" />
         <activity
-            android:name = ".Activities.Rebundant.login"
+            android:name = ".Activities.Redundant.login"
             android:label = "Login" />
         <activity
-            android:name = ".Activities.Rebundant.signup"
+            android:name = ".Activities.Redundant.signup"
             android:label = "Sign Up" />
         <activity
             android:name = ".Activities.ReportFiles.AttachmentReportActivity"
@@ -66,7 +66,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name = ".Activities.Rebundant.JoyInterface"
+            android:name = ".Activities.Redundant.JoyInterface"
             android:icon = "@mipmap/healtcare_icon"
             android:label = "Joy"
             android:roundIcon = "@mipmap/healtcare_icon_round">
@@ -78,7 +78,7 @@
             android:name = ".Activities.MyWebViewActivity"
             android:label = "Webview" />
         <activity
-            android:name = ".Activities.Rebundant.Signin"
+            android:name = ".Activities.Redundant.Signin"
             android:label = "Sign In" />
         <activity
             android:name = ".Activities.MainActivity"

@@ -1,4 +1,4 @@
-package com.sdp.remotehealthcareapp.Activities.Rebundant;
+package com.sdp.remotehealthcareapp.Activities.Redundant;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

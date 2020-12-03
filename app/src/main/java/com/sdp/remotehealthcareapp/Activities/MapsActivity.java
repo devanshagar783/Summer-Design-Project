@@ -117,12 +117,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         docName = bundle.getString("Name");
 
         mMap = googleMap;
-//
-//        if (previousMarker != null) {
-//            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(previousMarker.getPosition().latitude, previousMarker.getPosition().longitude), 10));
-//            mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-//        }
 
+        if (previousMarker != null) {
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(previousMarker.getPosition().latitude, previousMarker.getPosition().longitude), 10));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+        }
 
 
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
@@ -144,7 +143,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         LocalTime localTime = LocalTime.now(); //current time
         Calendar calendar = Calendar.getInstance();
-        int dayint = 2;//calendar.get(Calendar.DAY_OF_WEEK); //todays day
+        int dayint = calendar.get(Calendar.DAY_OF_WEEK); //todays day
         switch (dayint) {
             case 1:
                 day = "Sunday";
@@ -213,7 +212,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng hospital3 = new LatLng(26.796456, 80.892670);
         LatLng hospital4 = new LatLng(26.797819, 80.900112);
 
-
         for (int i = 0; i < array_title.size(); ++i) {
             String clinicName = array_title.get(i);
             switch (clinicName) {
@@ -230,14 +228,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     location = hospital4;
                     break;
             }
-
-            System.out.println("Map Will visit " + clinicName);
-            Log.d(TAG, "onMapReady: " + clinicName);
-            Log.d(TAG, "setMapMarkers: " + localTime);
-
-            System.out.println("New test msg");
             setMarkers(clinicName, localTime, location);
-            System.out.println("Something");
         }
     }
 
@@ -288,14 +279,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                     );
                                     Log.d(TAG, "onComplete: map marker r " + clinicName);
                                 }
-                            } catch (NullPointerException e){
+                            } catch (NullPointerException e) {
                                 Toast.makeText(MapsActivity.this, "Doctor is not coming", Toast.LENGTH_SHORT).show();
                             } catch (Exception e) {
                                 Toast.makeText(MapsActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                                Log.d(TAG, "onComplete: "+e);
+                                Log.d(TAG, "onComplete: " + e);
                             }
-                        }
-                        else{
+                        } else {
                             Toast.makeText(MapsActivity.this, "Not available", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -347,24 +337,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             previousMarker = mMap.addMarker(new MarkerOptions()
                     .title("Your Location")
                     .position(position));
-
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(position));
         }
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-
     }
 
     @Override
     public void onProviderEnabled(@NonNull String provider) {
-
     }
 
     @Override
     public void onProviderDisabled(@NonNull String provider) {
-
     }
 
 }
