@@ -66,6 +66,7 @@ public class Tab2 extends Fragment {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
         }
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
@@ -74,13 +75,13 @@ public class Tab2 extends Fragment {
                         // Got last known location. In some rare situations this can be null.
                         Log.d(TAG, "onSuccess: " + location.getLatitude());
                         Log.d(TAG, "onSuccess: " + location.getLongitude());
-                        //                                if (location != null) {
-                        //                                    // Logic to handle location object
-                        //                                    latitude = location.getLatitude();
-                        //                                    longitude = location.getLongitude();
-                        //                                }
-                        latitude = location.getLatitude();
-                        longitude = location.getLongitude();
+                            //                                    if (location != null) {
+                            //                                    // Logic to handle location object
+                            //                                    latitude = location.getLatitude();
+                            //                                    longitude = location.getLongitude();
+                            //                                }
+                            latitude = location.getLatitude();
+                            longitude = location.getLongitude();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -98,13 +99,14 @@ public class Tab2 extends Fragment {
             public void onClick(View view) {
                 emergencyContacts = new ArrayList<>();
                 emergencyContacts.add("+919205710631");
-//                emergencyContacts.add("");
-//                emergencyContacts.add("");
+                emergencyContacts.add("+918795641407");
+                emergencyContacts.add("+919027256094");
 //                emergencyContacts.add("");
                 if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
+                    ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
                     return;
                 }
                 fusedLocationClient.getLastLocation()
@@ -114,10 +116,10 @@ public class Tab2 extends Fragment {
                             // Got last known location. In some rare situations this can be null.
                             Log.d(TAG, "onSuccess: " + location.getLatitude());
                             Log.d(TAG, "onSuccess: " + location.getLongitude());
-                            if (location != null) {
+//                            if (location != null) {
                                 latitude = location.getLatitude();
                                 longitude = location.getLongitude();
-                            }
+//                            }
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
