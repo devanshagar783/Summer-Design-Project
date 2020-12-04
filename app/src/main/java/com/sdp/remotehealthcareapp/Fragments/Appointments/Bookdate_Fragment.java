@@ -328,7 +328,7 @@ public class Bookdate_Fragment extends Fragment {
         doc_name.setText(name);
         patient.setText(MainActivity.getName());
         clinic.setText(spinner.getSelectedItem().toString());
-        time.setText(GridViewAdapter.time + " " + mDisplayDate.getText().toString());
+        time.setText(GridViewAdapter.time + " On " + mDisplayDate.getText().toString());
     }
 
 }

@@ -88,7 +88,7 @@ public class RecentAppointment_Fragment extends Fragment {
                 holder.setApp_Dr(model.getDr());
                 holder.setApp_Pat(model.getPatient());
                 holder.setApp_Photo(model.getPhoto());
-                holder.setApp_Time(model.getTime()+ " "+model.getDate());
+                holder.setApp_Time(model.getTime()+ " On"+model.getDate());
 
             }
 
