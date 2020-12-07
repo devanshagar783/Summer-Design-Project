@@ -222,7 +222,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                 @Override
                 public void onInfoWindowClick(Marker marker) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Bookdate_Fragment()).addToBackStack("Maps").commit();
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new Bookdate_Fragment()).addToBackStack("Maps").commit();
                     Toast.makeText(MapsActivity.this, "Now move to book appointments activity", Toast.LENGTH_SHORT).show();
                 }
             });
