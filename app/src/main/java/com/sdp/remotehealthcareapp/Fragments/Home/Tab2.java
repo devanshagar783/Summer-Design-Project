@@ -60,11 +60,13 @@ public class Tab2 extends Fragment {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
 
 
+
         //Bug fix attempt start -> working
         if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
             ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST_SEND_SMS);
         }
         fusedLocationClient.getLastLocation()
                 .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
@@ -92,10 +94,13 @@ public class Tab2 extends Fragment {
         // bug fix attempt end -> working
 
 
+
         btn_sos.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 emergencyContacts = new ArrayList<>();
-                emergencyContacts.add("+919205710631");
+                emergencyContacts.add("+917018903955");
+                emergencyContacts.add("+917018901543");
+                emergencyContacts.add("+919335183296");
                 emergencyContacts.add("+918795641407");
                 if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_SEND_SMS);
@@ -104,34 +109,34 @@ public class Tab2 extends Fragment {
                     return;
                 }
                 fusedLocationClient.getLastLocation()
-                        .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
-                            @Override
-                            public void onSuccess(Location location) {
-                                // Got last known location. In some rare situations this can be null.
-                                Log.d(TAG, "onSuccess: " + location.getLatitude());
-                                Log.d(TAG, "onSuccess: " + location.getLongitude());
-                                if (location != null) {
-                                    latitude = location.getLatitude();
-                                    longitude = location.getLongitude();
-                                }
+                    .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            // Got last known location. In some rare situations this can be null.
+                            Log.d(TAG, "onSuccess: " + location.getLatitude());
+                            Log.d(TAG, "onSuccess: " + location.getLongitude());
+                            if (location != null) {
+                                latitude = location.getLatitude();
+                                longitude = location.getLongitude();
                             }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.d("MapDemoActivity", "Error trying to get last GPS location");
-                                e.printStackTrace();
-                            }
-                        });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("MapDemoActivity", "Error trying to get last GPS location");
+                            e.printStackTrace();
+                        }
+                    });
 
                 message = "This is a medical emergency and you're listed as my emergency contact. I am at " + "https://www.google.com/maps/search/?api=1&query=" + latitude + "," + longitude;
-                for (String phoneNo : emergencyContacts) {
+                for (String phoneNo: emergencyContacts) {
                     try {
                         SmsManager smsManager = SmsManager.getDefault();
                         smsManager.sendTextMessage(phoneNo, null, message, null, null);
                         Toast.makeText(getActivity().getApplicationContext(), "Message Sent", Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
-                        Toast.makeText(getActivity().getApplicationContext(), "No medical emergency contacts are listed" + e.getStackTrace().toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "No medical emergency contacts are listed", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -139,4 +144,44 @@ public class Tab2 extends Fragment {
 
         return v;
     }
+
+
+//
+//    protected void sendSMSMessage() {
+//        phoneNo = "+918795641407";
+//        message = "sos help me at ";
+//
+//        if (ContextCompat.checkSelfPermission(getActivity(),
+//                Manifest.permission.SEND_SMS)
+//                != PackageManager.PERMISSION_GRANTED) {
+//            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+//                    Manifest.permission.SEND_SMS)) {
+//            } else {
+//                ActivityCompat.requestPermissions(getActivity(),
+//                        new String[]{Manifest.permission.SEND_SMS},
+//                        MY_PERMISSIONS_REQUEST_SEND_SMS);
+//            }
+//        }
+//    }
+//
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+//        switch (requestCode) {
+//            case MY_PERMISSIONS_REQUEST_SEND_SMS: {
+//                if (grantResults.length > 0
+//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                    SmsManager smsManager = SmsManager.getDefault();
+//                    smsManager.sendTextMessage(phoneNo, null, message, null, null);
+//                    Toast.makeText(getActivity().getApplicationContext(), "SMS sent.",
+//                            Toast.LENGTH_LONG).show();
+//                } else {
+//                    Toast.makeText(getActivity().getApplicationContext(),
+//                            "SMS failed, please try again.", Toast.LENGTH_LONG).show();
+//                    return;
+//                }
+//            }
+//        }
+//    }
+
+
 }
