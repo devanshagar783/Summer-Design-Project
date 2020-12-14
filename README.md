@@ -1,5 +1,5 @@
 # Summer-Design-Project
-This a ongoing project, a patient side healthcare android application, where patient can do the following tasks:-
+This is an ongoing project, a patient side healthcare android application, where patient can do the following tasks:-
 1-Login through registered phone number, and later can register their email.
 2-Edit and save their personal details for profile setup.
 3-Book multiple appointments to respective doctors, the appointments would be set as per taken care of time,date clashes (No 2 appointments can be set on same time and same date).
