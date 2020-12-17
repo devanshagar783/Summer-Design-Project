@@ -110,40 +110,10 @@ public class Tab3 extends Fragment {
 
     public void generateContentLink() {
         Uri baseUrl = Uri.parse("https://remotehealthcareproject.page.link/invite");
-        String domain = "https://remotehealthcareproject.page.link";
-        DynamicLink link = FirebaseDynamicLinks.getInstance().createDynamicLink()
-                .setLink(baseUrl)
-                .setDomainUriPrefix(domain)
-                .buildDynamicLink();
-
-        Log.d(TAG, "generateContentLink: long" + link.getUri());
-
-        //shorten the dynamic link
-        Task<ShortDynamicLink> shortDynamicLinkTask = FirebaseDynamicLinks.getInstance().createDynamicLink()
-                .setLink(baseUrl)
-                .setAndroidParameters(new DynamicLink.AndroidParameters.Builder().build())
-                .setDomainUriPrefix(domain)
-                .buildShortDynamicLink()
-                .addOnCompleteListener(new OnCompleteListener<ShortDynamicLink>() {
-                    @Override
-                    public void onComplete(@NonNull Task<ShortDynamicLink> task) {
-                        Log.d(TAG, "onComplete: " + task.getResult());
-                        if (task.isSuccessful()) {
-                            Uri shortLink = task.getResult().getShortLink();
-                            Uri flowchartLink = task.getResult().getPreviewLink();
-
-                            Log.d(TAG, "onComplete: short" + shortLink);
-
-
-                            String message = "Hey there! Try this amazing healthcare application Hygeia and install it from here:-\n " + shortLink.toString();
-                            Intent intent = new Intent(Intent.ACTION_SEND);
-                            intent.setType("text/plain");
-                            intent.putExtra(Intent.EXTRA_TEXT, message);
-                            startActivity(Intent.createChooser(intent, "Refer Application"));
-                        } else {
-                            Log.d(TAG, "onComplete: Error" + task.getException());
-                        }
-                    }
-                });
+        String message = "Hey there! Try this amazing healthcare application Hygeia and install it from here:-" + baseUrl.toString();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+        startActivity(Intent.createChooser(intent, "Refer Application"));
     }
 }
