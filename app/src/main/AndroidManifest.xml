@@ -11,13 +11,13 @@
     <uses-permission android:name = "android.permission.INTERNET" />
     <uses-permission android:name = "android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name = "android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name = "android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name = "android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name = "android.permission.SEND_SMS" />
+    <uses-permission android:name = "android.permission.READ_SMS" />
+    <uses-permission android:name = "android.permission.ACCESS_NETWORK_STATE" />
+    
     <application
-        android:name=".Activities.Notifications.App"
+        android:name = ".Activities.Notifications.App"
         android:allowBackup = "true"
         android:hardwareAccelerated = "false"
         android:icon = "@mipmap/hygeia_icon"
@@ -39,9 +39,9 @@
             android:name = "com.google.android.geo.API_KEY"
             android:value = "@string/google_maps_key" />
         <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
+            android:name = "preloaded_fonts"
+            android:resource = "@array/preloaded_fonts" />
+        
         <activity
             android:name = ".Activities.MapsActivity"
             android:label = "@string/title_activity_maps" />
@@ -64,8 +64,40 @@
             android:theme = "@style/Splash">
             <intent-filter>
                 <action android:name = "android.intent.action.MAIN" />
-    
+                
                 <category android:name = "android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+            
+            <intent-filter>
+                <action android:name = "android.intent.action.VIEW" />
+                
+                <category android:name = "android.intent.category.DEFAULT" />
+                <category android:name = "android.intent.category.BROWSABLE" />
+                
+                <data
+                    android:host = "github.com"
+                    android:scheme = "http" />
+                <data
+                    android:host = "github.com"
+                    android:scheme = "https" />
+            </intent-filter>
+            
+            
+            <intent-filter android:autoVerify = "true">
+                <action android:name = "android.intent.action.VIEW" />
+                
+                <category android:name = "android.intent.category.DEFAULT" />
+                <category android:name = "android.intent.category.BROWSABLE" />
+                
+                <data
+                    android:host = "remotehealthcareproject.page.link"
+                    android:pathPrefix = "/invite"
+                    android:scheme = "http" />
+                <data
+                    android:host = "remotehealthcareproject.page.link"
+                    android:pathPrefix = "/invite"
+                    android:scheme = "https" />
             </intent-filter>
         </activity>
         <activity
@@ -91,9 +123,9 @@
             android:name = ".Activities.Login.PhoneAuthActivity"
             android:label = "Phone Authentication">
         </activity>
-        <activity android:name=".Activities.Login.CreateAccount"
-            android:label="Create Account">
-
+        <activity
+            android:name = ".Activities.Login.CreateAccount"
+            android:label = "Create Account">
         </activity>
     </application>
 

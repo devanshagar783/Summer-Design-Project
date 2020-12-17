@@ -65,6 +65,13 @@
             android:text = "+919999999999"
             android:textSize = "20sp"
             />
+        
+        <Button
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:id="@+id/inviteuser"
+            android:layout_below="@+id/usernum"
+            android:text="Invite"/>
     
     </RelativeLayout>
     
