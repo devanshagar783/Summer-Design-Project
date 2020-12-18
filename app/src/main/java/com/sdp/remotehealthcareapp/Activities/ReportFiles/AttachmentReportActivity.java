@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
@@ -16,6 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.strictmode.IntentReceiverLeakedViolation;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -35,14 +38,17 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.sdp.remotehealthcareapp.Activities.MainActivity;
 import com.sdp.remotehealthcareapp.R;
 
 import java.io.IOException;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.concurrent.Executor;
 
 public class AttachmentReportActivity extends AppCompatActivity {
 
+    private static final String TAG = "AttachmentReportActivit";
     private TextView userName; // for displaying user's name
     private ImageView openImage; // open new image
     private ImageView showImage; // shows the image opened
@@ -74,10 +80,10 @@ public class AttachmentReportActivity extends AppCompatActivity {
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         assert email != null;
-        String user_email = email.substring(0,email.indexOf("@"));
+        String user_email = email.substring(0, email.indexOf("@"));
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("uploads/"+ user_email);
-        storageReference = FirebaseStorage.getInstance().getReference("uploads/"+user_email);
+        mDatabase = FirebaseDatabase.getInstance().getReference("uploads/" + user_email);
+        storageReference = FirebaseStorage.getInstance().getReference("uploads/" + user_email);
 
         openImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,12 +100,56 @@ public class AttachmentReportActivity extends AppCompatActivity {
                     uploadFile();
             }
         });
-        getPrevious.setOnClickListener(new View.OnClickListener() {
+
+//        getPrevious.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openImagesActivity();
+//            }
+//        });
+
+        Executor executor = ContextCompat.getMainExecutor(this);
+        BiometricPrompt biometricPrompt = new BiometricPrompt(this,
+                executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
-            public void onClick(View view) {
+            public void onAuthenticationError(int errorCode,
+                                              @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+                Toast.makeText(getApplicationContext(),
+                        "Authentication error: " + errString, Toast.LENGTH_SHORT)
+                        .show();
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(
+                    @NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                Toast.makeText(getApplicationContext(), "Authentication succeeded!", Toast.LENGTH_SHORT).show();
                 openImagesActivity();
             }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                Toast.makeText(getApplicationContext(), "Authentication failed",
+                        Toast.LENGTH_SHORT)
+                        .show();
+            }
         });
+
+        BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle("Biometric login")
+                .setSubtitle("Please verify your credentials")
+                .setNegativeButtonText("Use account password")
+                .build();
+
+        // Prompt appears when user clicks "Log in".
+        // Consider integrating with the keystore to unlock cryptographic operations,
+        // if needed by your app.
+        getPrevious.setOnClickListener(view -> {
+            biometricPrompt.authenticate(promptInfo);
+        });
+
     }
 
 
